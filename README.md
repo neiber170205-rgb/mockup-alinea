@@ -4,7 +4,8 @@ Mockup de la plataforma **Alinea** (por d2b software) con el club de ejemplo **B
 
 ## Cómo verlo
 
-- **En línea:** https://neiber170205-rgb.github.io/mockup-alinea/ (con GitHub Pages activo).
+- **Ya publicado en Claude:** https://claude.ai/artifact/15jcZZUcnjUXzKgsGaRZ3F (privado hasta que lo compartas).
+- **Con GitHub Pages:** en Settings → Pages escoge la rama `main` y la carpeta `/ (root)`. Queda en https://neiber170205-rgb.github.io/mockup-alinea/ (con el repo privado, Pages pide un plan de pago).
 - **En tu computador:** en esta carpeta corre `python3 -m http.server 8000` y abre http://localhost:8000.
 - En cualquier pantalla, el botón **Pantallas** (abajo a la izquierda) muestra todo el mapa y deja cambiar de rol.
 
