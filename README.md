@@ -7,7 +7,7 @@ Mockup de la plataforma **Alinea** (por d2b software) con el club de ejemplo **B
 - **Ya publicado en Claude:** https://claude.ai/artifact/15jcZZUcnjUXzKgsGaRZ3F (privado hasta que lo compartas).
 - **Con GitHub Pages:** en Settings → Pages escoge la rama `main` y la carpeta `/ (root)`. Queda en https://neiber170205-rgb.github.io/mockup-alinea/ (con el repo privado, Pages pide un plan de pago).
 - **En tu computador:** en esta carpeta corre `python3 -m http.server 8000` y abre http://localhost:8000.
-- En cualquier pantalla, el botón **Pantallas** (abajo a la izquierda) muestra todo el mapa y deja cambiar de rol.
+- Para cambiar de rol vuelve a la página de inicio. Todas las pantallas están en `mapa.html`.
 
 ## Entrar por rol
 
@@ -39,5 +39,5 @@ La consola d2b (súper admin) y el registro de clubes están en `mapa.html`.
 
 - Cada pantalla es el tablero del lienzo tal cual, con su plantilla y su lógica de ejemplo.
 - `assets/js/dc-lite.js` pinta las plantillas y las vuelve a pintar al tocar botones, filtros o buscadores.
-- `assets/js/mockup.js` pone el botón Pantallas y muestra las vistas de celular dentro de un marco cuando se abren en computador.
+- `assets/js/mockup.js` muestra las vistas de celular dentro de un marco cuando se abren en computador.
 - Nada se guarda ni se envía: Wompi, WhatsApp y el correo están simulados.
