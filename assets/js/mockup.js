@@ -6,8 +6,7 @@
   'use strict';
   const BASE = new URL('../../', document.currentScript.src);
   const url = (p) => new URL(p, BASE).href;
-  const params = new URLSearchParams(location.search);
-  const EMBED = params.has('embed');
+  const EMBED = window.name === 'mk-embed';
 
   const GROUPS = window.MOCKUP_GROUPS = [
     { id: 'admin', name: 'Administrador del club', who: 'Laura Ríos', items: [
@@ -42,15 +41,16 @@
 
   const here = location.pathname.replace(/\/+$/, '');
   const isHere = (p) => here.endsWith('/' + p) || here.endsWith(p);
-  const rol = localStorage.getItem('alinea-mockup-rol');
+  let rol = null;
+  try { rol = localStorage.getItem('alinea-mockup-rol'); } catch (e) { rol = null; }
 
   const meta = document.querySelector('meta[name="mk-width"]');
-  const PHONE = !EMBED && meta && meta.content === '390' && window.innerWidth >= 700 && window.self === window.top;
+  const PHONE = !EMBED && meta && meta.content === '390' && window.innerWidth >= 700;
   if (PHONE) window.__MK_FRAMED = true;
 
   function phoneFrame() {
     document.body.className = 'mk-phone-page';
-    document.body.innerHTML = '<div class="mk-phone"><iframe title="' + document.title + '" src="' + location.pathname + '?embed=1"></iframe></div>'
+    document.body.innerHTML = '<div class="mk-phone"><iframe name="mk-embed" title="' + document.title + '" src="' + location.pathname + '"></iframe></div>'
       + '<p class="mk-phone-tip">Vista de celular. En un celular de verdad se ve a pantalla completa.</p>';
     const css = document.createElement('link');
     css.rel = 'stylesheet'; css.href = url('assets/css/mockup.css');
@@ -58,7 +58,7 @@
   }
 
   function nav() {
-    if (EMBED || window.self !== window.top) return;
+    if (EMBED) return;
     const css = document.createElement('link');
     css.rel = 'stylesheet'; css.href = url('assets/css/mockup.css');
     document.head.appendChild(css);
