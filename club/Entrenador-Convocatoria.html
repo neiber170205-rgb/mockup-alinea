@@ -19,31 +19,45 @@ input::placeholder,textarea::placeholder{color:#7A7085}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #6B3FA0;outline-offset:2px}
 </style>
 </helmet>
-<div style="width:390px;min-height:1450px;background:#F5F3F7;color:#17121D;font-family:Kanit, 'Trebuchet MS', Verdana, sans-serif;display:flex;flex-direction:column;">
+<div style="width:390px;min-height:1520px;background:#F5F3F7;color:#17121D;font-family:Kanit, 'Trebuchet MS', Verdana, sans-serif;display:flex;flex-direction:column;">
 <header style="background:#0F0B14;color:#FFFFFF;padding:18px 20px 22px;display:flex;flex-direction:column;gap:14px;"><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:10px;"><span style="display:block;width:36px;height:36px;border-radius:50%;overflow:hidden;flex:none;"><img src="../assets/img/escudo-black-panthers.jpg" alt="" style="display:block;width:104%;height:104%;margin:-2%;"></span><span style="font-weight:800;font-style:italic;text-transform:uppercase;font-size:1rem;">Black Panthers</span></span><span aria-label="Andrés, entrenador" style="width:36px;height:36px;border-radius:50%;background:#3B2259;color:#FFFFFF;font-size:0.8125rem;font-weight:600;display:flex;align-items:center;justify-content:center;">AN</span></div><div style="display:flex;flex-direction:column;gap:4px;"><h1 style="margin:0;font-weight:800;font-style:italic;text-transform:uppercase;font-size:2rem;line-height:1;">Copa Oriente</h1><p style="margin:0;font-size:0.9375rem;color:#D9D0E2;">6 y 7 de diciembre · Bucaramanga · Juvenil</p></div></header>
 <main style="flex:1;padding:18px 16px 24px;display:flex;flex-direction:column;gap:14px;">
-<section aria-label="Resumen" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;">
-<p style="margin:0;display:flex;align-items:baseline;gap:8px;"><span style="font-size:1.75rem;font-weight:600;line-height:1;font-variant-numeric:tabular-nums;">{{n}}</span><span style="color:#5E5468;">convocadas de 14</span></p>
-<p style="margin:0;font-size:0.875rem;color:#5E5468;font-variant-numeric:tabular-nums;">{{firmados}} con permiso firmado · {{faltan}} sin firmar · {{sinResp}} sin responder</p>
+<section aria-label="Resumen" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;">
+<p style="margin:0;display:flex;align-items:baseline;gap:8px;"><span style="font-size:1.75rem;font-weight:600;line-height:1;font-variant-numeric:tabular-nums;">{{listas}} de {{van}}</span><span style="color:#5E5468;">listas para viajar</span></p>
+<span role="img" aria-label="{{pct}} listas" style="display:block;height:8px;border-radius:999px;background:#ECE8F0;overflow:hidden;"><span style="display:block;height:100%;width:{{pct}};background:{{accent}};border-radius:999px;"></span></span>
+<p style="margin:0;font-size:0.875rem;color:#5E5468;font-variant-numeric:tabular-nums;">{{n}} convocadas · {{van}} van · {{sinResp}} sin responder · {{noVan}} no va</p>
 </section>
-<p style="margin:0;font-size:0.9375rem;color:#5E5468;">Marca a quién llevas. Las familias confirman y firman el permiso desde su celular.</p>
-<ul aria-label="Jugadoras" style="list-style:none;margin:0;padding:0;background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;overflow:hidden;">
-<template data-sc-for list="{{rows}}" as="r" hint-placeholder-count="14">
-<li style="display:flex;align-items:center;gap:10px;padding:6px 14px 6px 8px;border-top:1px solid #EEE9F2;">
-<input id="{{r.inId}}" type="checkbox" checked="{{r.on}}" onChange="{{r.toggle}}" style="flex:none;width:24px;height:24px;margin:10px;accent-color:#3B2259;cursor:pointer;">
-<label for="{{r.inId}}" style="flex:1;min-width:0;display:flex;flex-direction:column;cursor:pointer;min-height:44px;justify-content:center;"><span style="font-size:0.9375rem;font-weight:500;">{{r.name}}</span><span style="font-size:0.8125rem;color:#5E5468;">Camiseta {{r.num}}</span></label>
+<p style="margin:0;display:flex;align-items:flex-start;gap:8px;font-size:0.875rem;line-height:1.45;color:#5E5468;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 12l4 4 10-10"></path></svg><span>Lista para viajar: confirmó, firmó el permiso y está al día con el torneo. Los valores los maneja la administración.</span></p>
+<template data-sc-if value="{{noEdit}}" hint-placeholder-val="{{true}}">
+<ul aria-label="Convocadas" style="list-style:none;margin:0;padding:0;background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;overflow:hidden;">
+<template data-sc-for list="{{rows}}" as="r" hint-placeholder-count="12">
+<li style="display:flex;align-items:center;gap:10px;padding:10px 14px;border-top:1px solid #EEE9F2;">
+<span style="flex:none;width:38px;height:38px;border-radius:50%;background:#F1EBF8;color:#4F2C80;font-size:0.8125rem;font-weight:600;display:flex;align-items:center;justify-content:center;">{{r.ini}}</span>
+<span style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;"><span style="font-size:0.9375rem;font-weight:500;">{{r.name}} <span style="font-weight:400;color:#5E5468;">· {{r.num}}</span></span>
+<span style="display:flex;flex-wrap:wrap;gap:2px 10px;"><span style="{{r.r1s}}">{{r.r1}}</span><span style="{{r.r2s}}">{{r.r2}}</span><span style="{{r.r3s}}">{{r.r3}}</span></span></span>
 <span style="{{r.chipStyle}}">{{r.chip}}</span>
 </li>
 </template>
 </ul>
+</template>
+<template data-sc-if value="{{edit}}" hint-placeholder-val="{{false}}">
+<ul aria-label="Jugadoras del grupo" style="list-style:none;margin:0;padding:0;background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;overflow:hidden;">
+<template data-sc-for list="{{grupo}}" as="g" hint-placeholder-count="14">
+<li style="display:flex;align-items:center;gap:10px;padding:4px 14px 4px 8px;border-top:1px solid #EEE9F2;">
+<input id="{{g.inId}}" type="checkbox" checked="{{g.on}}" onChange="{{g.toggle}}" style="flex:none;width:24px;height:24px;margin:10px;accent-color:#3B2259;cursor:pointer;">
+<label for="{{g.inId}}" style="flex:1;min-width:0;display:flex;flex-direction:column;cursor:pointer;min-height:44px;justify-content:center;"><span style="font-size:0.9375rem;font-weight:500;">{{g.name}}</span><span style="font-size:0.8125rem;color:#5E5468;">Camiseta {{g.num}}</span></label>
+</li>
+</template>
+</ul>
+</template>
+<button type="button" onClick="{{toggleEdit}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:10px;border:1.5px solid #C9BED6;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;font-weight:500;cursor:pointer;text-decoration:none;">{{editTxt}}</button>
 <template data-sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
-<button type="button" onClick="{{send}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Enviar convocatoria</button>
-<button type="button" onClick="{{send}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:10px;border:1.5px solid #C9BED6;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;font-weight:500;cursor:pointer;text-decoration:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Recordar permisos sin firmar</button>
+<button type="button" onClick="{{send}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 6.5l8.5 6 8.5-6"></path></svg>{{sendTxt}}</button>
 </template>
 <template data-sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
-<p role="status" style="margin:0;display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:10px;background:#DCF2E5;color:#135C34;font-size:0.9375rem;line-height:1.45;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 12l4 4 10-10"></path></svg>Listo: les llegó por WhatsApp a las familias de las {{n}} convocadas.</p>
+<p role="status" style="margin:0;display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:10px;background:#DCF2E5;color:#135C34;font-size:0.9375rem;line-height:1.45;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 12l4 4 10-10"></path></svg>{{sentTxt}}</p>
 </template>
-<p style="margin:0;display:flex;align-items:flex-start;gap:8px;font-size:0.875rem;line-height:1.45;color:#5E5468;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg><span>Con cada respuesta de una familia te llega un aviso, y el admin ve la lista final.</span></p>
+<p style="margin:0;display:flex;align-items:flex-start;gap:8px;font-size:0.875rem;line-height:1.45;color:#5E5468;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 6.5l8.5 6 8.5-6"></path></svg><span>Las familias responden, firman y pagan desde su celular. Con cada cambio te llega un aviso.</span></p>
 </main>
 <nav aria-label="Menú del entrenador" style="display:flex;border-top:1px solid #E4DEEA;background:#FFFFFF;">
 <a href="Entrenador-Inicio.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M4 11l8-7 8 7"></path><path d="M6 10v10h12V10"></path></svg>Inicio</a>
@@ -53,46 +67,58 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 <a href="Entrenador-Convocatoria.html" aria-current="page" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#3B2259;text-decoration:none;font-size:0.8125rem;font-weight:600;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg>Torneos</a>
 </nav></div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#6B3FA0","options":["#6B3FA0","#8B3FD9","#7A4C9E"]},"$preview":{"width":390,"height":1450}}'>
-const PLAYERS = [
-  { id: 'vr', ini: 'VR', name: 'Valentina Rojas', num: '10', age: 15, att: 10, tot: 12, acu: 'Martha Rojas (mamá)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
-  { id: 'ic', ini: 'IC', name: 'Isabella Contreras', num: '4', age: 16, att: 12, tot: 12, acu: 'Diana Contreras (mamá)', blood: 'A+', alerg: 'Alérgica al maní', faltas: 0 },
-  { id: 'jm', ini: 'JM', name: 'Juliana Mora', num: '9', age: 15, att: 11, tot: 12, acu: 'Carlos Mora (papá)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
-  { id: 'ng', ini: 'NG', name: 'Natalia Gómez', num: '3', age: 16, att: 12, tot: 12, acu: 'Luz Gómez (mamá)', blood: 'B+', alerg: 'Ninguna', faltas: 0 },
-  { id: 'ph', ini: 'PH', name: 'Paula Herrera', num: '11', age: 15, att: 9, tot: 12, acu: 'Sandra Herrera (mamá)', blood: 'O-', alerg: 'Ninguna', faltas: 0 },
-  { id: 'ml', ini: 'ML', name: 'Mariana Lizcano', num: '8', age: 16, att: 11, tot: 12, acu: 'Jorge Lizcano (papá)', blood: 'A+', alerg: 'Ninguna', faltas: 0 },
-  { id: 'vc', ini: 'VC', name: 'Valeria Castro', num: '15', age: 14, att: 10, tot: 12, acu: 'Ruth Castro (abuela)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
-  { id: 'ar', ini: 'AR', name: 'Antonia Rueda', num: '2', age: 15, att: 12, tot: 12, acu: 'Paola Rueda (mamá)', blood: 'AB+', alerg: 'Ninguna', faltas: 0 },
-  { id: 'sf', ini: 'SF', name: 'Samantha Flórez', num: '17', age: 16, att: 11, tot: 12, acu: 'Mónica Flórez (mamá)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
-  { id: 'lv', ini: 'LV', name: 'Luciana Vera', num: '6', age: 15, att: 10, tot: 12, acu: 'Natalia Vera (mamá)', blood: 'A-', alerg: 'Ninguna', faltas: 0 },
-  { id: 'eg', ini: 'EG', name: 'Emily Galvis', num: '13', age: 14, att: 7, tot: 12, acu: 'Fredy Galvis (papá)', blood: 'O+', alerg: 'Ninguna', faltas: 3 },
-  { id: 'ap', ini: 'AP', name: 'Ana Sofía Prada', num: '21', age: 15, att: 11, tot: 12, acu: 'Lina Prada (mamá)', blood: 'B+', alerg: 'Ninguna', faltas: 0 },
-  { id: 'mi', ini: 'MI', name: 'María José Ibarra', num: '7', age: 16, att: 12, tot: 12, acu: 'Pedro Ibarra (papá)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
-  { id: 'sa', ini: 'SA', name: 'Salomé Ardila', num: '19', age: 14, att: 8, tot: 12, acu: 'Claudia Ardila (mamá)', blood: 'A+', alerg: 'Asma: usa inhalador', faltas: 3 },
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#6B3FA0","options":["#6B3FA0","#8B3FD9","#7A4C9E"]},"$preview":{"width":390,"height":1520}}'>
+const GRUPO = [
+  { id: 'sd', name: 'Sofía Duarte', num: '7', conv: true, resp: 'va', permiso: true, pago: true },
+  { id: 'mp', name: 'Mariana Peña', num: '4', conv: true, resp: 'va', permiso: true, pago: false },
+  { id: 'lg', name: 'Laura Gélvez', num: '9', conv: true, resp: 'va', permiso: true, pago: true },
+  { id: 'eg', name: 'Emily Galvis', num: '13', conv: true, resp: 'va', permiso: true, pago: true },
+  { id: 'sa', name: 'Salomé Ardila', num: '19', conv: true, resp: 'va', permiso: false, pago: false },
+  { id: 'km', name: 'Karen Méndez', num: '14', conv: true, resp: 'va', permiso: true, pago: true },
+  { id: 'mj', name: 'María José Suárez', num: '16', conv: true, resp: 'va', permiso: true, pago: true },
+  { id: 'no', name: 'Natalia Ortiz', num: '5', conv: true, resp: 'va', permiso: true, pago: false },
+  { id: 'jc', name: 'Juana Carrillo', num: '2', conv: true, resp: 'va', permiso: true, pago: true },
+  { id: 'ps', name: 'Paula Silva', num: '11', conv: true, resp: 'va', permiso: true, pago: false },
+  { id: 'vr', name: 'Valentina Rojas', num: '10', conv: true, resp: 'nada', permiso: false, pago: false },
+  { id: 'dr', name: 'Daniela Ramírez', num: '8', conv: true, resp: 'no', permiso: false, pago: false },
+  { id: 'vc', name: 'Valeria Castro', num: '15', conv: false, resp: 'nada', permiso: false, pago: false },
+  { id: 'ar', name: 'Antonia Rueda', num: '21', conv: false, resp: 'nada', permiso: false, pago: false },
 ];
-
-const RESP = { vr: 'firmo', ic: 'firmo', jm: 'firmo', ng: 'falta', ph: 'firmo', ml: 'firmo', vc: 'nada', ar: 'firmo', sf: 'falta', lv: 'firmo', eg: 'no', ap: 'falta', mi: 'firmo', sa: 'no' };
-const CH = { firmo: ['#DCF2E5', '#135C34', 'Va · permiso firmado'], falta: ['#FCEFCF', '#6E4700', 'Va · falta el permiso'], nada: ['#ECE8F0', '#4A4253', 'Sin responder'], no: ['#FBE0DE', '#8F1D17', 'No va'] };
-
+const OK = '#DCF2E5|#135C34', WARN = '#FCEFCF|#6E4700', GRAY = '#ECE8F0|#4A4253', BAD = '#FBE0DE|#8F1D17';
+const pill = (c) => { const [b, f] = c.split('|'); return 'flex:none;padding:3px 8px;border-radius:6px;font-size:0.75rem;font-weight:500;background:' + b + ';color:' + f + ';'; };
+const dot = (on, na) => 'display:inline-flex;align-items:center;gap:4px;font-size:0.75rem;color:' + (na ? '#9A8BAE' : on ? '#135C34' : '#6E4700') + ';';
 class Component extends DCLogic {
-  constructor(props) { super(props); this.state = { conv: PLAYERS.map((p) => p.id !== 'eg' && p.id !== 'sa'), sent: false }; }
   renderVals() {
+    const s = this.state || {};
     const accent = this.props.accent ?? '#6B3FA0';
-    const { conv, sent } = this.state;
-    const rows = PLAYERS.map((p, i) => {
-      const on = conv[i];
-      const r = RESP[p.id];
-      return { ...p, on, inId: 'cv-' + p.id,
-        toggle: () => { const n = conv.slice(); n[i] = !n[i]; this.setState({ conv: n, sent: false }); },
-        chip: on ? CH[r][2] : 'No convocada',
-        chipStyle: 'flex:none;padding:3px 8px;border-radius:6px;font-size:0.75rem;font-weight:500;background:' + (on ? CH[r][0] : '#F5F3F7') + ';color:' + (on ? CH[r][1] : '#5E5468') + ';' };
-    });
-    const sel = rows.filter((r) => r.on);
+    const conv = s.conv || Object.fromEntries(GRUPO.map((p) => [p.id, p.conv]));
+    const edit = !!s.edit;
+    const status = (p) => {
+      if (p.resp === 'no') return ['No va', BAD];
+      if (p.resp === 'nada') return [p.conv || s.sent ? 'Sin responder' : 'Nueva: sin enviar', GRAY];
+      if (!p.permiso) return ['Falta el permiso', WARN];
+      if (!p.pago) return ['Pago con administración', WARN];
+      return ['Lista para viajar', OK];
+    };
+    const sel = GRUPO.filter((p) => conv[p.id]);
+    const van = sel.filter((p) => p.resp === 'va');
+    const listas = van.filter((p) => p.permiso && p.pago).length;
+    const nuevas = GRUPO.filter((p) => conv[p.id] && !p.conv).length;
     return {
-      accent, rows, sent, notSent: !sent,
-      n: sel.length, firmados: sel.filter((r) => RESP[r.id] === 'firmo').length,
-      faltan: sel.filter((r) => RESP[r.id] === 'falta').length, sinResp: sel.filter((r) => RESP[r.id] === 'nada').length,
-      send: () => this.setState({ sent: true }),
+      accent, edit, noEdit: !edit, toggleEdit: () => this.setState({ edit: !edit, sent: false }),
+      rows: sel.map((p) => { const [t, c] = status(p); const va = p.resp === 'va';
+        return { ...p, ini: p.name.split(' ').map((w) => w[0]).slice(0, 2).join(''), chip: t, chipStyle: pill(c),
+          r1: va ? 'Va' : p.resp === 'no' ? 'No va' : 'Sin respuesta', r1s: dot(va, p.resp !== 'va'),
+          r2: va ? (p.permiso ? 'Permiso' : 'Sin permiso') : 'Permiso', r2s: dot(p.permiso, !va),
+          r3: va ? (p.pago ? 'Pago al día' : 'Pago pendiente') : 'Pago', r3s: dot(p.pago, !va) }; }),
+      grupo: GRUPO.map((p) => ({ ...p, on: !!conv[p.id], inId: 'cv-' + p.id, toggle: () => this.setState({ conv: { ...conv, [p.id]: !conv[p.id] }, sent: false }) })),
+      n: sel.length, van: van.length, listas, faltan: van.length - listas, sinResp: sel.filter((p) => p.resp === 'nada').length, noVan: sel.filter((p) => p.resp === 'no').length,
+      pct: (van.length ? Math.round(listas / van.length * 100) : 0) + '%',
+      nuevas, hayNuevas: nuevas > 0,
+      editTxt: edit ? 'Listo' : 'Agregar o quitar jugadoras',
+      sendTxt: nuevas > 0 ? 'Enviar convocatoria a las nuevas' : 'Recordar a las que les falta algo',
+      sent: !!s.sent, notSent: !s.sent, send: () => this.setState({ sent: true }),
+      sentTxt: nuevas > 0 ? (nuevas === 1 ? 'Le llegó la convocatoria por correo a la familia de la nueva' : 'Les llegó la convocatoria por correo a las familias de las ' + nuevas + ' nuevas') + ', con su parte y el botón para pagar.' : 'Les llegó un correo a las familias que tienen algo pendiente. Sale en horario permitido.',
     };
   }
 }

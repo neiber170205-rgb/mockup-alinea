@@ -127,8 +127,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 </template>
 <template data-sc-if value="{{tourNeedsPermit}}" hint-placeholder-val="{{false}}">
 <div style="display:flex;flex-direction:column;gap:8px;">
-<p style="margin:0;font-size:0.9375rem;line-height:1.45;">Confirmado. Falta firmar el permiso de viaje.</p>
-<button type="button" onClick="{{signPermit}}" style="min-height:48px;border:none;border-radius:10px;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;">Firmar permiso de viaje</button>
+<p style="margin:0;font-size:0.9375rem;line-height:1.45;">Confirmado. Falta firmar el permiso y pagar su parte: $250.000.</p>
+<a href="Acudiente-Torneos.html" style="min-height:48px;border:none;border-radius:10px;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;">Firmar y pagar</a>
 </div>
 </template>
 <template data-sc-if value="{{tourSigned}}" hint-placeholder-val="{{false}}">

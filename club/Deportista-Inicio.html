@@ -45,8 +45,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 </div>
 </template>
 <template data-sc-if value="{{needs}}" hint-placeholder-val="{{false}}">
-<p style="margin:0;font-size:0.9375rem;line-height:1.45;">Como eres mayor de edad, no necesitas permiso de un acudiente. Solo acepta las condiciones del viaje.</p>
-<button type="button" onClick="{{accept}}" style="min-height:48px;border:none;border-radius:10px;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;">Acepto las condiciones</button>
+<p style="margin:0;font-size:0.9375rem;line-height:1.45;">Como eres mayor de edad, no necesitas permiso. Lee las condiciones del viaje y paga tu parte: $250.000 con bus y hotel.</p>
+<a href="Acudiente-Torneos.html" style="min-height:48px;border:none;border-radius:10px;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;text-decoration:none;">Ver condiciones y pagar</a>
 </template>
 <template data-sc-if value="{{done}}" hint-placeholder-val="{{false}}"><p role="status" style="margin:0;display:flex;align-items:center;gap:8px;font-size:0.9375rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 12l4 4 10-10"></path></svg>Vas al torneo. Le avisamos al entrenador.</p></template>
 <template data-sc-if value="{{no}}" hint-placeholder-val="{{false}}"><div style="display:flex;align-items:center;justify-content:space-between;gap:8px;"><p role="status" style="margin:0;font-size:0.9375rem;">Le avisamos al entrenador que no vas.</p><button type="button" onClick="{{reset}}" style="flex:none;min-height:44px;padding:0 4px;border:none;background:transparent;color:#FFFFFF;font-family:inherit;font-size:0.9375rem;text-decoration:underline;cursor:pointer;">Cambiar</button></div></template>

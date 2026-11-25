@@ -15,10 +15,11 @@
 <style>
 body{margin:0;background:#F5F3F7}
 a{color:#5B3A86}a:hover{color:#3B2259}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #6B3FA0;outline-offset:2px}
+input::placeholder,textarea::placeholder{color:#7A7085}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #6B3FA0;outline-offset:2px}
 </style>
 </helmet>
-<div style="width:390px;min-height:1400px;background:#F5F3F7;color:#17121D;font-family:Kanit, 'Trebuchet MS', Verdana, sans-serif;display:flex;flex-direction:column;">
+<div style="width:390px;min-height:1700px;background:#F5F3F7;color:#17121D;font-family:Kanit, 'Trebuchet MS', Verdana, sans-serif;display:flex;flex-direction:column;">
 
 <header style="background:#0F0B14;color:#FFFFFF;padding:18px 20px 20px;display:flex;flex-direction:column;gap:14px;">
 <div style="display:flex;align-items:center;gap:10px;">
@@ -28,12 +29,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #6B3F
 <h1 style="margin:0;font-weight:800;font-style:italic;text-transform:uppercase;font-size:2rem;line-height:1;">Torneos</h1>
 <div role="group" aria-label="Escoge a tu jugadora" style="display:flex;gap:8px;">
 <template data-sc-for list="{{kids}}" as="k" hint-placeholder-count="2">
-<template data-sc-if value="{{k.active}}" hint-placeholder-val="{{false}}">
-<button type="button" aria-pressed="true" onClick="{{k.pick}}" style="flex:1;min-height:44px;border-radius:10px;border:1.5px solid #FFFFFF;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:0.9375rem;font-weight:600;cursor:pointer;">{{k.first}}</button>
-</template>
-<template data-sc-if value="{{k.inactive}}" hint-placeholder-val="{{true}}">
-<button type="button" aria-pressed="false" onClick="{{k.pick}}" style="flex:1;min-height:44px;border-radius:10px;border:1.5px solid #4A3560;background:transparent;color:#FFFFFF;font-family:inherit;font-size:0.9375rem;cursor:pointer;">{{k.first}}</button>
-</template>
+<template data-sc-if value="{{k.active}}" hint-placeholder-val="{{false}}"><button type="button" aria-pressed="true" onClick="{{k.pick}}" style="flex:1;min-height:44px;border-radius:10px;border:1.5px solid #FFFFFF;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:0.9375rem;font-weight:600;cursor:pointer;">{{k.first}}</button></template>
+<template data-sc-if value="{{k.inactive}}" hint-placeholder-val="{{true}}"><button type="button" aria-pressed="false" onClick="{{k.pick}}" style="flex:1;min-height:44px;border-radius:10px;border:1.5px solid #4A3560;background:transparent;color:#FFFFFF;font-family:inherit;font-size:0.9375rem;cursor:pointer;">{{k.first}}</button></template>
 </template>
 </div>
 </header>
@@ -52,49 +49,129 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #6B3F
 <dt style="color:#D9C7E6;">Cuándo</dt><dd style="margin:0;">6 y 7 de diciembre</dd>
 <dt style="color:#D9C7E6;">Dónde</dt><dd style="margin:0;">Bucaramanga</dd>
 <dt style="color:#D9C7E6;">Salida</dt><dd style="margin:0;">Sábado 6, 5:00 a. m., desde la cancha</dd>
-<dt style="color:#D9C7E6;">Inscripción</dt><dd style="margin:0;">$40.000 · pagada</dd>
+<dt style="color:#D9C7E6;">Regreso</dt><dd style="margin:0;">Domingo 7, 6:00 p. m.</dd>
+<dt style="color:#D9C7E6;">Responde</dt><dd style="margin:0;">Antes del 28 de noviembre</dd>
 </dl>
+<p style="margin:0;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.1);font-size:0.875rem;line-height:1.45;">Gracias a Ferretería La Frontera y a la rifa del equipo, cada jugadora paga $130.000 menos.</p>
 
 <template data-sc-if value="{{tourAsk}}" hint-placeholder-val="{{true}}">
 <div style="display:flex;flex-direction:column;gap:8px;">
 <p style="margin:0;font-size:0.9375rem;font-weight:500;">¿Valentina va al torneo?</p>
 <div style="display:flex;gap:8px;">
-<button type="button" onClick="{{tourNo}}" style="flex:1;min-height:48px;border-radius:10px;border:1.5px solid #D9C7E6;background:transparent;color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:500;cursor:pointer;">No va</button>
-<button type="button" onClick="{{tourYes}}" style="flex:1;min-height:48px;border:none;border-radius:10px;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;">Sí va</button>
+<button type="button" onClick="{{no}}" style="flex:1;min-height:48px;border-radius:10px;border:1.5px solid #D9C7E6;background:transparent;color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:500;cursor:pointer;">No va</button>
+<button type="button" onClick="{{yes}}" style="flex:1;min-height:48px;border:none;border-radius:10px;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;">Sí va</button>
 </div>
-</div>
-</template>
-
-<template data-sc-if value="{{tourPermit}}" hint-placeholder-val="{{false}}">
-<div style="display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:10px;background:#FFFFFF;color:#17121D;">
-<p style="margin:0;font-size:1rem;font-weight:600;">Permiso de viaje</p>
-<p style="margin:0;font-size:0.9375rem;line-height:1.5;color:#2B2233;">Yo, Martha Rojas, autorizo a Valentina Rojas a viajar con Black Panthers Voleibol a Bucaramanga del 6 al 7 de diciembre de 2026, a cargo del entrenador Andrés.</p>
-<label style="display:flex;align-items:flex-start;gap:10px;font-size:0.9375rem;line-height:1.4;cursor:pointer;"><input type="checkbox" checked="{{agree}}" onChange="{{toggleAgree}}" style="flex:none;width:20px;height:20px;margin:1px 0 0;accent-color:#6B3FA0;">Leí el permiso y estoy de acuerdo</label>
-<button type="button" onClick="{{sign}}" style="min-height:48px;border:none;border-radius:10px;background:{{signBg}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;">Firmar permiso</button>
-<template data-sc-if value="{{signError}}" hint-placeholder-val="{{false}}">
-<p role="alert" style="margin:0;font-size:0.875rem;color:#8F1D17;">Marca la casilla para poder firmar.</p>
-</template>
+<p style="margin:0;font-size:0.8125rem;color:#D9C7E6;">Su parte va de $160.000 a $250.000, según si usa el hotel.</p>
 </div>
 </template>
 
-<template data-sc-if value="{{tourSigned}}" hint-placeholder-val="{{false}}">
-<p role="status" style="margin:0;display:flex;align-items:flex-start;gap:10px;font-size:0.9375rem;line-height:1.45;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D49BCB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px;"><path d="M5 12l4 4 10-10"></path></svg>Va al torneo y el permiso quedó firmado. Te enviamos la copia por WhatsApp.</p>
-</template>
-
-<template data-sc-if value="{{tourDeclined}}" hint-placeholder-val="{{false}}">
+<template data-sc-if value="{{tourNo}}" hint-placeholder-val="{{false}}">
 <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
 <p role="status" style="margin:0;font-size:0.9375rem;">Le avisamos al entrenador que no va.</p>
-<button type="button" onClick="{{tourReset}}" style="flex:none;min-height:44px;padding:0 4px;border:none;background:transparent;color:#FFFFFF;font-family:inherit;font-size:0.9375rem;text-decoration:underline;cursor:pointer;">Cambiar</button>
+<button type="button" onClick="{{reset}}" style="flex:none;min-height:44px;padding:0 4px;border:none;background:transparent;color:#FFFFFF;font-family:inherit;font-size:0.9375rem;text-decoration:underline;cursor:pointer;">Cambiar</button>
 </div>
 </template>
+
+<template data-sc-if value="{{inFlow}}" hint-placeholder-val="{{false}}">
+<ol aria-label="Pasos" style="list-style:none;margin:0;padding:0;display:flex;gap:6px;">
+<template data-sc-for list="{{steps}}" as="p" hint-placeholder-count="3"><li style="{{p.style}}"><span style="{{p.dot}}">{{p.n}}</span>{{p.t}}</li></template>
+</ol>
+</template>
 </section>
+
+<template data-sc-if value="{{stOpts}}" hint-placeholder-val="{{false}}">
+<section aria-labelledby="t-viaja" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px;">
+<h2 id="t-viaja" style="margin:0;font-size:1.0625rem;font-weight:600;">¿Cómo viaja Valentina?</h2>
+<div><div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #EEE9F2;"><span style="flex:none;width:40px;height:40px;border-radius:12px;background:#F1EBF8;color:#4F2C80;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="4" y="3.5" width="16" height="14" rx="2.5"></rect><path d="M4 10.5h16M8 3.5v7M16 3.5v7"></path><circle cx="8" cy="14.5" r="1"></circle><circle cx="16" cy="14.5" r="1"></circle><path d="M6.5 17.5v2.5M17.5 17.5v2.5"></path></svg></span><span style="flex:1;min-width:0;line-height:1.35;"><span style="display:block;font-weight:500;">Va en el bus del equipo</span><span style="display:block;font-size:0.8125rem;color:#5E5468;">Sale de la cancha a las 5:00 a. m.</span></span><button type="button" role="switch" aria-checked="{{bus}}" aria-label="Va en el bus del equipo" onClick="{{flip_bus}}" style="flex:none;position:relative;width:52px;height:30px;border:none;border-radius:999px;background:{{busBg}};cursor:pointer;"><span style="position:absolute;top:3px;left:{{busX}};width:24px;height:24px;border-radius:50%;background:#FFFFFF;"></span></button></div><div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #EEE9F2;"><span style="flex:none;width:40px;height:40px;border-radius:12px;background:#F1EBF8;color:#4F2C80;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M3 18V6M3 14h18v4M21 14v-2.5a3 3 0 0 0-3-3h-7v5.5"></path><circle cx="7" cy="11" r="1.8"></circle></svg></span><span style="flex:1;min-width:0;line-height:1.35;"><span style="display:block;font-weight:500;">Duerme en el hotel con el equipo</span><span style="display:block;font-size:0.8125rem;color:#5E5468;">Habitación con 3 compañeras</span></span><button type="button" role="switch" aria-checked="{{hotel}}" aria-label="Duerme en el hotel con el equipo" onClick="{{flip_hotel}}" style="flex:none;position:relative;width:52px;height:30px;border:none;border-radius:999px;background:{{hotelBg}};cursor:pointer;"><span style="position:absolute;top:3px;left:{{hotelX}};width:24px;height:24px;border-radius:50%;background:#FFFFFF;"></span></button></div><div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #EEE9F2;"><span style="flex:none;width:40px;height:40px;border-radius:12px;background:#F1EBF8;color:#4F2C80;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="8" cy="8" r="3"></circle><circle cx="16.5" cy="9" r="2.5"></circle><path d="M2.5 20c0-3.3 2.5-6 5.5-6s5.5 2.7 5.5 6M14 14.3c.8-.4 1.6-.6 2.5-.6 2.8 0 5 2.4 5 5.3"></path></svg></span><span style="flex:1;min-width:0;line-height:1.35;"><span style="display:block;font-weight:500;">Un acompañante viaja con el equipo</span><span style="display:block;font-size:0.8125rem;color:#5E5468;">Puesto en el bus y hotel: $168.000</span></span><button type="button" role="switch" aria-checked="{{acomp}}" aria-label="Un acompañante viaja con el equipo" onClick="{{flip_acomp}}" style="flex:none;position:relative;width:52px;height:30px;border:none;border-radius:999px;background:{{acompBg}};cursor:pointer;"><span style="position:absolute;top:3px;left:{{acompX}};width:24px;height:24px;border-radius:50%;background:#FFFFFF;"></span></button></div></div>
+<div style="border-radius:12px;background:#F5F3F7;padding:12px 14px;display:flex;flex-direction:column;gap:6px;">
+<template data-sc-for list="{{lines}}" as="l" hint-placeholder-count="5"><div style="display:flex;justify-content:space-between;gap:10px;font-size:0.9375rem;"><span style="color:#5E5468;">{{l.t}}</span><span style="font-variant-numeric:tabular-nums;{{l.style}}">{{l.v}}</span></div></template>
+<div style="display:flex;justify-content:space-between;gap:10px;padding-top:8px;margin-top:2px;border-top:1px solid #E4DEEA;font-weight:600;"><span>Su parte</span><span style="font-size:1.25rem;font-variant-numeric:tabular-nums;">{{cuota}}</span></div>
+</div>
+<p style="margin:0;display:flex;align-items:flex-start;gap:8px;font-size:0.875rem;line-height:1.45;color:#5E5468;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="4" y="3.5" width="16" height="14" rx="2.5"></rect><path d="M4 10.5h16M8 3.5v7M16 3.5v7"></path><circle cx="8" cy="14.5" r="1"></circle><circle cx="16" cy="14.5" r="1"></circle><path d="M6.5 17.5v2.5M17.5 17.5v2.5"></path></svg><span>Si no va en el bus o no usa el hotel, su parte baja sola. El patrocinio ya está descontado.</span></p>
+<button type="button" onClick="{{toPermit}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;">Seguir al permiso</button>
+</section>
+</template>
+
+<template data-sc-if value="{{stPermit}}" hint-placeholder-val="{{false}}">
+<section aria-labelledby="t-permiso" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px;">
+<h2 id="t-permiso" style="margin:0;font-size:1.0625rem;font-weight:600;">Permiso de viaje</h2>
+<p style="margin:0;font-size:0.9375rem;line-height:1.55;color:#2B2233;">Yo, Martha Rojas, con cédula 60.345.112, mamá de Valentina Rojas (tarjeta de identidad 1.090.456.789), autorizo que viaje a Bucaramanga con Black Panthers Voleibol para jugar la Copa Oriente. Sale el sábado 6 de diciembre a las 5:00 a. m. y regresa el domingo 7 a las 6:00 p. m., a cargo del entrenador Andrés Peña (cédula 88.234.567, celular 315 555 0122).</p>
+<ul aria-label="Documentos del permiso" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;">
+<li style="display:flex;align-items:center;gap:10px;font-size:0.9375rem;"><span style="flex:none;width:28px;height:28px;border-radius:50%;background:#DCF2E5;color:#135C34;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 12l4 4 10-10"></path></svg></span><span style="flex:1;">Registro civil de Valentina<br><span style="font-size:0.8125rem;color:#5E5468;">Ya está en su ficha</span></span></li>
+<li style="display:flex;align-items:center;gap:10px;font-size:0.9375rem;">
+<template data-sc-if value="{{ced}}" hint-placeholder-val="{{false}}"><span style="flex:none;width:28px;height:28px;border-radius:50%;background:#DCF2E5;color:#135C34;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 12l4 4 10-10"></path></svg></span></template>
+<template data-sc-if value="{{noCed}}" hint-placeholder-val="{{true}}"><span style="flex:none;width:28px;height:28px;border-radius:50%;background:#F1EBF8;color:#4F2C80;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M21 16l-5-5-9 8"></path></svg></span></template>
+<span style="flex:1;">Foto de tu cédula<br><span style="font-size:0.8125rem;color:#5E5468;">La pide la empresa del bus</span></span>
+<template data-sc-if value="{{noCed}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{upCed}}" style="flex:none;min-height:40px;padding:0 12px;border-radius:10px;border:1.5px solid #C9BED6;background:#FFFFFF;font-family:inherit;font-size:0.875rem;font-weight:500;cursor:pointer;">Subir foto</button></template>
+</li>
+</ul>
+<label style="display:flex;align-items:flex-start;gap:10px;font-size:0.9375rem;line-height:1.4;cursor:pointer;"><input type="checkbox" checked="{{agree}}" onChange="{{toggleAgree}}" style="flex:none;width:20px;height:20px;margin:1px 0 0;accent-color:#6B3FA0;">Leí el permiso y estoy de acuerdo</label>
+<button type="button" onClick="{{sign}}" style="min-height:48px;border:none;border-radius:10px;background:{{signBg}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;">Firmar permiso</button>
+<template data-sc-if value="{{signErr}}" hint-placeholder-val="{{false}}"><p role="alert" style="margin:0;font-size:0.875rem;color:#8F1D17;">Sube la foto de tu cédula y marca la casilla para poder firmar.</p></template>
+<p style="margin:0;display:flex;align-items:flex-start;gap:8px;font-size:0.875rem;line-height:1.45;color:#5E5468;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M7 3h7l5 5v13H7z"></path><path d="M14 3v5h5"></path></svg><span>Sirve como autorización de viaje por tierra sin ir a notaría. Te llega la copia en PDF al correo y el entrenador la lleva.</span></p>
+<button type="button" onClick="{{toOpts}}" style="align-self:flex-start;min-height:40px;padding:0;border:none;background:none;color:#4F2C80;font-family:inherit;font-size:0.9375rem;text-decoration:underline;cursor:pointer;">Volver a cómo viaja</button>
+</section>
+</template>
+
+<template data-sc-if value="{{stPay}}" hint-placeholder-val="{{false}}">
+<section aria-labelledby="t-pago" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px;">
+<div><h2 id="t-pago" style="margin:0;font-size:1.0625rem;font-weight:600;">Tu parte: {{falta}}</h2><p style="margin:4px 0 0;font-size:0.875rem;color:#5E5468;">Paga hasta el 2 de diciembre, todo o por partes.</p></div>
+<div role="group" aria-label="Cómo quieres pagar" style="display:flex;gap:4px;padding:4px;border-radius:12px;background:#ECE8F0;">
+<template data-sc-for list="{{pms}}" as="o" hint-placeholder-count="3"><button type="button" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}" style="{{o.style}}">{{o.t}}</button></template>
+</div>
+<template data-sc-if value="{{pmTodo}}" hint-placeholder-val="{{true}}"><div style="display:flex;flex-direction:column;gap:8px;">
+<button type="button" onClick="{{payAll}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;">Pagar {{falta}} con Wompi</button>
+<p style="margin:0;font-size:0.8125rem;color:#5E5468;text-align:center;">Tarjeta, PSE o Nequi. La plata va directo a la cuenta del club.</p>
+</div></template>
+<template data-sc-if value="{{pmAbono}}" hint-placeholder-val="{{false}}"><div style="display:flex;flex-direction:column;gap:10px;">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+<button type="button" aria-label="Abonar menos" onClick="{{abMenos}}" style="flex:none;width:48px;height:48px;border-radius:10px;border:1.5px solid #C9BED6;background:#FFFFFF;font-family:inherit;font-size:1.25rem;cursor:pointer;">−</button>
+<span aria-live="polite" style="font-size:1.5rem;font-weight:600;font-variant-numeric:tabular-nums;">{{ab}}</span>
+<button type="button" aria-label="Abonar más" onClick="{{abMas}}" style="flex:none;width:48px;height:48px;border-radius:10px;border:1.5px solid #C9BED6;background:#FFFFFF;font-family:inherit;font-size:1.25rem;cursor:pointer;">+</button>
+</div>
+<button type="button" onClick="{{payAb}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;">Abonar {{ab}} con Wompi</button>
+<p style="margin:0;font-size:0.8125rem;color:#5E5468;text-align:center;">Te quedarían {{abLeft}} por pagar. Abonos desde $50.000.</p>
+</div></template>
+<template data-sc-if value="{{pmTrans}}" hint-placeholder-val="{{false}}"><div style="display:flex;flex-direction:column;gap:10px;">
+<div style="border-radius:12px;background:#F5F3F7;padding:12px 14px;font-size:0.9375rem;line-height:1.5;">Bancolombia ahorros <b style="font-weight:600;">123-456789-01</b><br>Club Deportivo Black Panthers · NIT 901.234.567-8<br>Llave Bre-B <b style="font-weight:600;">310 555 0100</b><br><span style="color:#5E5468;font-size:0.875rem;">En la descripción pon: TOR-ORI Valentina</span></div>
+<template data-sc-if value="{{noSop}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{upSop}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:10px;border:1.5px solid #C9BED6;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;font-weight:500;cursor:pointer;text-decoration:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="10" r="1.8"></circle><path d="M21 16l-5-5-9 8"></path></svg>Subir foto del soporte</button></template>
+<template data-sc-if value="{{sop}}" hint-placeholder-val="{{false}}"><p style="margin:0;display:flex;align-items:center;gap:8px;font-size:0.9375rem;color:#135C34;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 12l4 4 10-10"></path></svg>soporte-transferencia.jpg</p></template>
+<button type="button" onClick="{{sendTrans}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;">Enviar soporte</button>
+</div></template>
+<button type="button" onClick="{{copy}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:10px;border:1.5px solid #C9BED6;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;font-weight:500;cursor:pointer;text-decoration:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"></path><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"></path></svg>Compartir enlace de pago</button>
+<template data-sc-if value="{{copied}}" hint-placeholder-val="{{false}}"><p role="status" style="margin:0;font-size:0.875rem;color:#135C34;">Enlace copiado. Quien lo abra puede pagar sin entrar a la app; el comprobante sale a nombre de Valentina.</p></template>
+<button type="button" onClick="{{later}}" style="align-self:center;min-height:40px;padding:0;border:none;background:none;color:#4F2C80;font-family:inherit;font-size:0.9375rem;text-decoration:underline;cursor:pointer;">Pagar después</button>
+</section>
+</template>
+
+<template data-sc-if value="{{stDone}}" hint-placeholder-val="{{false}}">
+<section aria-label="Estado del pago" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;">
+<template data-sc-if value="{{dPaid}}" hint-placeholder-val="{{false}}"><p role="status" style="margin:0;display:flex;gap:10px;font-size:0.9375rem;line-height:1.45;"><span style="flex:none;color:#135C34;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 12l4 4 10-10"></path></svg></span><span><b style="font-weight:600;">Pagado: {{cuota}}</b><br>Te llegó al correo el comprobante CP-BP-0241 y la copia del permiso.</span></p></template>
+<template data-sc-if value="{{dRev}}" hint-placeholder-val="{{false}}"><p role="status" style="margin:0;font-size:0.9375rem;line-height:1.45;"><b style="font-weight:600;">Recibimos tu soporte</b><br>La tesorera lo revisa y te llega el comprobante al correo.</p></template>
+<template data-sc-if value="{{dPart}}" hint-placeholder-val="{{false}}"><p role="status" style="margin:0;font-size:0.9375rem;line-height:1.45;"><b style="font-weight:600;">Abonaste {{paidTxt}}</b><br>Te falta {{falta}} hasta el 2 de diciembre.</p><button type="button" onClick="{{payRest}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;">Pagar lo que falta</button></template>
+<template data-sc-if value="{{dLater}}" hint-placeholder-val="{{false}}"><p role="status" style="margin:0;font-size:0.9375rem;line-height:1.45;"><b style="font-weight:600;">Falta pagar {{falta}}</b><br>Tienes hasta el 2 de diciembre. Te recordamos por correo.</p><button type="button" onClick="{{payRest}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;">Pagar ahora</button></template>
+<button type="button" onClick="{{reset}}" style="align-self:flex-start;min-height:40px;padding:0;border:none;background:none;color:#4F2C80;font-family:inherit;font-size:0.9375rem;text-decoration:underline;cursor:pointer;">Cambiar respuesta</button>
+</section>
+</template>
+
+<template data-sc-if value="{{showList}}" hint-placeholder-val="{{false}}">
+<section aria-labelledby="t-lista" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;">
+<h2 id="t-lista" style="margin:0;font-size:1rem;font-weight:600;">Lista para viajar</h2>
+<ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:0.9375rem;">
+<li style="display:flex;align-items:center;gap:10px;"><span style="flex:none;width:28px;height:28px;border-radius:50%;background:#DCF2E5;color:#135C34;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 12l4 4 10-10"></path></svg></span>Confirmó que va</li>
+<li style="display:flex;align-items:center;gap:10px;"><span style="flex:none;width:28px;height:28px;border-radius:50%;background:#DCF2E5;color:#135C34;display:flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 12l4 4 10-10"></path></svg></span>Permiso firmado</li>
+<li style="display:flex;align-items:center;gap:10px;"><template data-sc-if value="{{listo}}" hint-placeholder-val="{{false}}"><span style="{{payIcoStyle}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 12l4 4 10-10"></path></svg></span></template><template data-sc-if value="{{noListo}}" hint-placeholder-val="{{true}}"><span style="{{payIcoStyle}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span></template>{{payState}}</li>
+</ul>
+<p style="margin:0;display:flex;align-items:flex-start;gap:8px;font-size:0.875rem;line-height:1.45;color:#5E5468;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span>Si Valentina no puede ir después del 28 de noviembre, lo pagado queda como saldo a favor, menos la inscripción y el hotel que el club ya pagó.</span></p>
+</section>
+</template>
 
 <section aria-label="Qué llevar" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;">
 <h2 style="margin:0;font-size:1rem;font-weight:600;">Qué llevar</h2>
 <ul style="margin:0;padding:0 0 0 1.1rem;display:flex;flex-direction:column;gap:4px;font-size:0.9375rem;line-height:1.45;color:#2B2233;">
 <li>Uniforme morado y uniforme negro</li>
 <li>Rodilleras y tenis de cancha</li>
-<li>Documento de identidad</li>
+<li>Documento de identidad original</li>
 <li>Agua y algo para comer en el viaje</li>
 </ul>
 </section>
@@ -104,8 +181,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #6B3F
 <template data-sc-if value="{{isAna}}" hint-placeholder-val="{{false}}">
 <section aria-label="Festival Infantil" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px;">
 <span style="font-weight:600;font-size:1.0625rem;">Festival Infantil</span>
-<span style="font-size:0.9375rem;color:#5E5468;">13 de diciembre · Cúcuta</span>
-<p style="margin:6px 0 0;display:flex;align-items:flex-start;gap:8px;font-size:0.9375rem;line-height:1.45;color:#2B2233;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>La entrenadora todavía no ha convocado. Si Ana Lucía va, te avisamos por WhatsApp.</p>
+<span style="font-size:0.9375rem;color:#5E5468;">13 de diciembre · Cúcuta · sin viaje · inscripción $20.000</span>
+<p style="margin:6px 0 0;display:flex;align-items:flex-start;gap:8px;font-size:0.9375rem;line-height:1.45;color:#2B2233;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3.5 6.5l8.5 6 8.5-6"></path></svg>La entrenadora todavía no ha convocado. Si Ana Lucía va, te avisamos por correo y pagas la inscripción desde aquí.</p>
 </section>
 </template>
 
@@ -114,7 +191,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #6B3F
 <ul style="list-style:none;margin:0;padding:0;background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;overflow:hidden;">
 <template data-sc-for list="{{played}}" as="p" hint-placeholder-count="2">
 <li style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid #EEE9F2;">
-<span style="flex:none;width:44px;height:44px;border-radius:50%;background:{{p.medal}};color:#0F0B14;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg></span>
+<span style="flex:none;width:44px;height:44px;border-radius:50%;background:{{p.medal}};color:#0F0B14;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg></span>
 <span style="flex:1;min-width:0;display:flex;flex-direction:column;"><span style="font-weight:500;">{{p.name}}</span><span style="font-size:0.875rem;color:#5E5468;">{{p.when}}</span></span>
 <span style="flex:none;font-size:0.9375rem;font-weight:600;">{{p.result}}</span>
 </li>
@@ -125,51 +202,77 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #6B3F
 <p style="margin:0;padding:14px 16px;border-radius:14px;background:#FFFFFF;border:1px solid #E4DEEA;font-size:0.9375rem;color:#5E5468;">Ana Lucía todavía no ha jugado torneos con el club.</p>
 </template>
 </main>
-
 <nav aria-label="Menú del portal" style="display:flex;border-top:1px solid #E4DEEA;background:#FFFFFF;">
-<a href="Acudiente-Inicio.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7"></path><path d="M6 10v10h12V10"></path></svg>Inicio</a>
-<a href="Acudiente-Pagos.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"></rect><circle cx="12" cy="12.5" r="2.5"></circle></svg>Pagos</a>
-<a href="Acudiente-Torneos.html" aria-current="page" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#3B2259;text-decoration:none;font-size:0.8125rem;font-weight:600;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg>Torneos</a>
-<a href="Acudiente-Carne.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M6 16c.6-1.5 1.7-2 3-2s2.4.5 3 2M15 10h3M15 13h3"></path></svg>Carné</a>
-<a href="Acudiente-Perfil.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>Perfil</a>
-</nav>
-
-</div>
+<a href="Acudiente-Inicio.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M4 11l8-7 8 7"></path><path d="M6 10v10h12V10"></path></svg>Inicio</a>
+<a href="Acudiente-Pagos.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="2" y="6" width="20" height="13" rx="2"></rect><circle cx="12" cy="12.5" r="2.5"></circle></svg>Pagos</a>
+<a href="Acudiente-Torneos.html" aria-current="page" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#3B2259;text-decoration:none;font-size:0.8125rem;font-weight:600;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg>Torneos</a>
+<a href="Acudiente-Carne.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M6 16c.6-1.5 1.7-2 3-2s2.4.5 3 2M15 10h3M15 13h3"></path></svg>Carné</a>
+<a href="Acudiente-Perfil.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>Perfil</a>
+</nav></div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#6B3FA0","options":["#6B3FA0","#8B3FD9","#7A4C9E"]},"$preview":{"width":390,"height":1400}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#6B3FA0","options":["#6B3FA0","#8B3FD9","#7A4C9E"]},"$preview":{"width":390,"height":1700}}'>
+const fm = (v) => '$' + String(Math.round(v)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 class Component extends DCLogic {
   renderVals() {
     const s = this.state || {};
     const accent = this.props.accent ?? '#6B3FA0';
+    const set = (o) => this.setState(o);
     const current = s.kid || 'val';
     const tour = s.tour || '';
-    const agree = !!s.agree;
+    const bus = s.bus !== false, hotel = s.hotel !== false, acomp = !!s.acomp;
+    const lines = [];
+    if (bus) lines.push(['Su parte del bus', 130000]);
+    lines.push(['Inscripción y cuerpo técnico', 70000], ['Comida · 2 días', 90000]);
+    if (hotel) lines.push(['Hotel · 1 noche', 90000]);
+    if (acomp) lines.push(['Acompañante: bus y hotel', 168000]);
+    lines.push(['Patrocinio y rifa', -130000]);
+    const cuota = Math.max(0, lines.reduce((a, l) => a + l[1], 0));
+    const paid = s.paid || 0; const falta = Math.max(0, cuota - paid);
+    const pm = s.pm || 'todo';
+    const ab = Math.min(s.ab || 100000, falta || 50000);
+    const agree = !!s.agree, ced = !!s.ced;
+    const sw = (k, on) => ({ [k]: on, [k + 'Bg']: on ? accent : '#8C8398', [k + 'X']: on ? '25px' : '3px', ['flip_' + k]: () => set({ [k]: !on }) });
+    const pagado = paid >= cuota && cuota > 0, rev = !!s.rev;
+    const step = tour === 'opts' ? 1 : tour === 'permit' ? 2 : 3;
     const played = current === 'val'
-      ? [
-          { name: 'Interclubes', when: '18 y 19 de octubre · Cúcuta', result: '2.º puesto', medal: '#D9DCE3' },
-          { name: 'Torneo de vacaciones', when: '12 de julio · Villa del Rosario', result: 'Participó', medal: '#EDE7F3' }
-        ]
+      ? [{ name: 'Interclubes', when: '18 y 19 de octubre · Cúcuta', result: '2.º puesto', medal: '#D9DCE3' },
+         { name: 'Torneo de vacaciones', when: '12 de julio · Villa del Rosario', result: 'Participó', medal: '#EDE7F3' }]
       : [];
     return {
-      accent: accent,
-      kids: [['val', 'Valentina'], ['ana', 'Ana Lucía']].map((k) => ({ first: k[1], active: k[0] === current, inactive: k[0] !== current, pick: () => this.setState({ kid: k[0] }) })),
-      isVal: current === 'val',
-      isAna: current === 'ana',
-      tourAsk: tour === '',
-      tourPermit: tour === 'yes',
-      tourSigned: tour === 'signed',
-      tourDeclined: tour === 'no',
-      tourYes: () => this.setState({ tour: 'yes', signError: false }),
-      tourNo: () => this.setState({ tour: 'no' }),
-      tourReset: () => this.setState({ tour: '', agree: false }),
-      agree: agree,
-      toggleAgree: () => this.setState({ agree: !agree, signError: false }),
-      signBg: agree ? accent : '#8E82A0',
-      signError: !!s.signError,
-      sign: () => (agree ? this.setState({ tour: 'signed', signError: false }) : this.setState({ signError: true })),
-      played: played,
-      hasPlayed: played.length > 0,
-      noPlayed: played.length === 0
+      accent,
+      kids: [['val', 'Valentina'], ['ana', 'Ana Lucía']].map((k) => ({ first: k[1], active: k[0] === current, inactive: k[0] !== current, pick: () => set({ kid: k[0] }) })),
+      isVal: current === 'val', isAna: current === 'ana',
+      tourAsk: tour === '', tourNo: tour === 'no', inFlow: ['opts', 'permit', 'pay', 'done'].includes(tour),
+      stOpts: tour === 'opts', stPermit: tour === 'permit', stPay: tour === 'pay', stDone: tour === 'done', showList: tour === 'pay' || tour === 'done',
+      steps: ['Cómo viaja', 'Permiso', 'Pago'].map((t, i) => ({ n: i + 1, t, style: 'flex:1;display:flex;align-items:center;gap:6px;font-size:0.8125rem;' + (i + 1 === step ? 'color:#FFFFFF;font-weight:600;' : i + 1 < step ? 'color:#D9C7E6;' : 'color:#9A8BAE;'),
+        dot: 'flex:none;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;' + (i + 1 <= step ? 'background:#FFFFFF;color:#3B2259;' : 'border:1.5px solid #6E5A86;color:#9A8BAE;') })),
+      yes: () => set({ tour: 'opts' }), no: () => set({ tour: 'no' }), reset: () => set({ tour: '', agree: false, ced: false, paid: 0, rev: false, later: false, copied: false }),
+      ...sw('bus', bus), ...sw('hotel', hotel), ...sw('acomp', acomp),
+      lines: lines.map((l) => ({ t: l[0], v: (l[1] < 0 ? '−' : '') + fm(Math.abs(l[1])), style: l[1] < 0 ? 'color:#135C34;' : '' })),
+      cuota: fm(cuota), falta: fm(falta), paidTxt: fm(paid),
+      toPermit: () => set({ tour: 'permit', signErr: false }), toOpts: () => set({ tour: 'opts' }),
+      agree, toggleAgree: () => set({ agree: !agree, signErr: false }),
+      ced, noCed: !ced, upCed: () => set({ ced: true, signErr: false }),
+      signBg: agree && ced ? accent : '#8E82A0', signErr: !!s.signErr,
+      sign: () => (agree && ced ? set({ tour: 'pay', signErr: false }) : set({ signErr: true })),
+      pms: [['todo', 'Pagar todo'], ['abono', 'Abonar'], ['trans', 'Transferencia']].map(([k, t]) => ({ t, pick: () => set({ pm: k }),
+        style: 'flex:1;min-height:40px;border:none;border-radius:8px;font-family:inherit;font-size:0.875rem;cursor:pointer;' + (pm === k ? 'background:#FFFFFF;color:#17121D;font-weight:600;box-shadow:0 1px 2px rgba(20,15,28,.15);' : 'background:transparent;color:#5E5468;'),
+        pressed: pm === k ? 'true' : 'false' })),
+      pmTodo: pm === 'todo', pmAbono: pm === 'abono', pmTrans: pm === 'trans',
+      ab: fm(ab), abLeft: fm(Math.max(0, falta - ab)),
+      abMenos: () => set({ ab: Math.max(50000, ab - 50000) }), abMas: () => set({ ab: Math.min(falta, ab + 50000) }),
+      payAll: () => set({ paid: cuota, tour: 'done', rev: false, later: false }),
+      payAb: () => set({ paid: paid + ab, tour: 'done', rev: false, later: false }),
+      sop: !!s.sop, noSop: !s.sop, upSop: () => set({ sop: true }),
+      sendTrans: () => set({ rev: true, tour: 'done', later: false }),
+      later: () => set({ later: true, tour: 'done' }),
+      copied: !!s.copied, copy: () => set({ copied: true }),
+      dPaid: tour === 'done' && pagado, dRev: tour === 'done' && rev && !pagado, dPart: tour === 'done' && !rev && paid > 0 && !pagado, dLater: tour === 'done' && !rev && paid === 0 && !pagado,
+      payRest: () => set({ tour: 'pay', pm: 'todo' }),
+      payState: pagado ? 'Pagado' : rev ? 'Soporte en revisión' : paid > 0 ? 'Falta ' + fm(falta) : 'Falta pagar',
+      payIcoStyle: 'flex:none;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;' + (pagado ? 'background:#DCF2E5;color:#135C34;' : 'background:#FCEFCF;color:#6E4700;'),
+      listo: pagado, noListo: !pagado,
+      played, hasPlayed: played.length > 0, noPlayed: played.length === 0
     };
   }
 }

@@ -34,6 +34,13 @@ La consola d2b (súper admin) y el registro de clubes están en `mapa.html`.
 - Mensualidades: Infantil $48.000, Juvenil $54.000 y Mayores $60.000. Fecha límite: el día 30 de cada mes.
 - Pagos: Wompi, transferencia a Bancolombia o llave Bre-B, y efectivo. Las cuentas y los números son inventados.
 - Otro club para el caso de familias: Tigres FC (fútbol).
+- Torneo con viaje: Copa Oriente Sub-16 en Bucaramanga. Gastos del equipo $2.400.000, patrocinio y rifa $1.560.000. Cuota fija: $250.000 con hotel y $160.000 sin hotel.
+
+## Probar el cobro de un torneo
+
+- Como acudiente: Torneos → «Sí va» → escoge cómo viaja → firma el permiso → paga todo, abona o sube la transferencia.
+- Como administrador: Torneos → filtra las convocadas, aprueba pagos por confirmar, decide qué hacer si van menos y abre «Nuevo torneo», «Agregar aporte» o «Registrar pago».
+- Como entrenador: Torneos → ve quién está lista para viajar, sin valores.
 
 ## Cómo está hecho
 
