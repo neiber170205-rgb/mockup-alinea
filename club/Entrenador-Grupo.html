@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Entrenador: mi grupo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mk-width" content="390">
+<script src="../assets/js/mockup.js"></script>
+<script src="../assets/js/dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;1,800&amp;display=swap">
+<style>
+body{margin:0;background:#F5F3F7}
+a{color:#5B3A86}a:hover{color:#3B2259}
+input::placeholder,textarea::placeholder{color:#7A7085}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #6B3FA0;outline-offset:2px}
+</style>
+</helmet>
+<div style="width:390px;min-height:1750px;background:#F5F3F7;color:#17121D;font-family:Kanit, 'Trebuchet MS', Verdana, sans-serif;display:flex;flex-direction:column;">
+<header style="background:#0F0B14;color:#FFFFFF;padding:18px 20px 22px;display:flex;flex-direction:column;gap:14px;"><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:10px;"><span style="display:block;width:36px;height:36px;border-radius:50%;overflow:hidden;flex:none;"><img src="../assets/img/escudo-black-panthers.jpg" alt="" style="display:block;width:104%;height:104%;margin:-2%;"></span><span style="font-weight:800;font-style:italic;text-transform:uppercase;font-size:1rem;">Black Panthers</span></span><span aria-label="Andrés, entrenador" style="width:36px;height:36px;border-radius:50%;background:#3B2259;color:#FFFFFF;font-size:0.8125rem;font-weight:600;display:flex;align-items:center;justify-content:center;">AN</span></div><div role="group" aria-label="Grupos" style="display:flex;gap:8px;"><button type="button" style="flex:1;min-height:44px;border-radius:8px;border:1.5px solid #4A3560;background:transparent;color:#FFFFFF;font-family:inherit;font-size:0.875rem;cursor:pointer;">Infantil</button><button type="button" aria-pressed="true" style="flex:1;min-height:44px;border-radius:8px;border:1.5px solid #FFFFFF;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:0.875rem;font-weight:600;cursor:pointer;">Juvenil</button><button type="button" style="flex:1;min-height:44px;border-radius:8px;border:1.5px solid #4A3560;background:transparent;color:#FFFFFF;font-family:inherit;font-size:0.875rem;cursor:pointer;">Mayores</button></div><div style="display:flex;flex-direction:column;gap:4px;"><h1 style="margin:0;font-weight:800;font-style:italic;text-transform:uppercase;font-size:2rem;line-height:1;">Juvenil</h1><p style="margin:0;font-size:0.9375rem;color:#D9D0E2;">14 jugadoras · Mar, Jue y Sáb, 4:30 p. m.</p></div></header>
+<main style="flex:1;padding:18px 16px 24px;display:flex;flex-direction:column;gap:14px;">
+
+<section aria-label="Ficha de la jugadora" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px;">
+<div style="display:flex;align-items:center;gap:12px;">
+<span aria-hidden="true" style="flex:none;width:48px;height:48px;border-radius:50%;background:#3B2259;color:#FFFFFF;font-size:1rem;font-weight:600;display:flex;align-items:center;justify-content:center;">{{s.ini}}</span>
+<div style="display:flex;flex-direction:column;"><h2 style="margin:0;font-size:1.125rem;font-weight:600;">{{s.name}}</h2><span style="font-size:0.875rem;color:#5E5468;">Camiseta {{s.num}} · {{s.age}} años</span></div>
+</div>
+<template data-sc-if value="{{s.warn}}" hint-placeholder-val="{{true}}"><p style="margin:0;padding:10px 12px;border-radius:10px;background:#FCEFCF;color:#6E4700;font-size:0.9375rem;">Lleva 3 faltas seguidas. El club ya avisó a su familia.</p></template>
+<div style="display:flex;flex-direction:column;gap:6px;">
+<span style="font-size:0.875rem;color:#5E5468;">Acudiente</span>
+<span style="font-size:1rem;font-weight:500;">{{s.acu}}</span>
+<div style="display:flex;gap:8px;">
+<button type="button" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:10px;border:1.5px solid #C9BED6;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;font-weight:500;cursor:pointer;text-decoration:none;flex:1;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"></path></svg>Llamar</button>
+<button type="button" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:10px;border:1.5px solid #C9BED6;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;font-weight:500;cursor:pointer;text-decoration:none;flex:1;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>WhatsApp</button>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;padding-top:10px;border-top:1px solid #EEE9F2;">
+<span style="display:flex;align-items:center;gap:8px;font-size:1rem;font-weight:600;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"></path><path d="M12 10v5M9.5 12.5h5"></path></svg>Ficha médica</span>
+<dl style="margin:0;display:grid;grid-template-columns:auto minmax(0, 1fr);gap:6px 14px;font-size:0.9375rem;">
+<dt style="color:#5E5468;">Sangre</dt><dd style="margin:0;">{{s.blood}}</dd>
+<dt style="color:#5E5468;">Cuidado</dt><dd style="margin:0;">{{s.alerg}}</dd>
+<dt style="color:#5E5468;">EPS</dt><dd style="margin:0;">[EPS]</dd>
+</dl>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;padding-top:10px;border-top:1px solid #EEE9F2;">
+<div style="display:flex;justify-content:space-between;gap:8px;font-size:0.9375rem;"><span>Asistencia de noviembre</span><span style="font-weight:600;font-variant-numeric:tabular-nums;">{{s.att}} de {{s.tot}}</span></div>
+<div style="height:8px;border-radius:999px;background:#EDE7F3;overflow:hidden;"><div style="height:100%;width:{{s.pct}}%;background:#1F7A47;"></div></div>
+</div>
+<p style="margin:0;font-size:0.8125rem;color:#5E5468;">Los pagos solo los ve el admin del club.</p>
+</section>
+
+<label style="position:relative;display:block;"><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);">Buscar jugadora</span>
+<span style="position:absolute;left:12px;top:14px;color:#5E5468;display:flex;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg></span>
+<input type="search" value="{{q}}" onChange="{{setQ}}" placeholder="Buscar jugadora" style="width:100%;height:48px;box-sizing:border-box;padding:0 12px 0 40px;border-radius:10px;border:1.5px solid #8E82A0;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;">
+</label>
+
+<ul aria-label="Jugadoras del grupo" style="list-style:none;margin:0;padding:0;background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;overflow:hidden;">
+<template data-sc-for list="{{rows}}" as="r" hint-placeholder-count="14">
+<li><button type="button" onClick="{{r.pick}}" aria-pressed="{{r.on}}" style="{{r.style}}">
+<span aria-hidden="true" style="flex:none;width:36px;height:36px;border-radius:50%;background:#EDE7F3;color:#3B2259;font-size:0.8125rem;font-weight:600;display:flex;align-items:center;justify-content:center;">{{r.ini}}</span>
+<span style="flex:1;min-width:0;display:flex;flex-direction:column;"><span style="font-size:0.9375rem;font-weight:500;">{{r.name}}</span><span style="font-size:0.8125rem;color:#5E5468;">Camiseta {{r.num}} · {{r.pct}} % de asistencia</span></span>
+<template data-sc-if value="{{r.salud}}" hint-placeholder-val="{{false}}"><span aria-label="Tiene un cuidado médico" style="flex:none;color:#B42318;display:flex;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"></path><path d="M12 10v5M9.5 12.5h5"></path></svg></span></template>
+<template data-sc-if value="{{r.warn}}" hint-placeholder-val="{{false}}"><span style="flex:none;padding:3px 8px;border-radius:6px;background:#FCEFCF;color:#6E4700;font-size:0.75rem;font-weight:500;">3 faltas</span></template>
+</button></li>
+</template>
+</ul>
+<template data-sc-if value="{{empty}}" hint-placeholder-val="{{false}}"><p style="margin:0;color:#5E5468;">No hay jugadoras con ese nombre.</p></template>
+</main>
+<nav aria-label="Menú del entrenador" style="display:flex;border-top:1px solid #E4DEEA;background:#FFFFFF;">
+<a href="Entrenador-Inicio.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M4 11l8-7 8 7"></path><path d="M6 10v10h12V10"></path></svg>Inicio</a>
+<a href="Entrenador-Asistencia.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4h6v3H9z"></path><path d="M9 14l2 2 4-4"></path></svg>Asistencia</a>
+<a href="Entrenador-Grupo.html" aria-current="page" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#3B2259;text-decoration:none;font-size:0.8125rem;font-weight:600;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"></path><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M21.5 20c0-2.9-1.8-5.3-4.3-6.2"></path></svg>Grupo</a>
+<a href="Entrenador-Avisar.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Avisar</a>
+<a href="Entrenador-Convocatoria.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg>Torneos</a>
+</nav></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#6B3FA0","options":["#6B3FA0","#8B3FD9","#7A4C9E"]},"$preview":{"width":390,"height":1750}}'>
+const PLAYERS = [
+  { id: 'vr', ini: 'VR', name: 'Valentina Rojas', num: '10', age: 15, att: 10, tot: 12, acu: 'Martha Rojas (mamá)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'ic', ini: 'IC', name: 'Isabella Contreras', num: '4', age: 16, att: 12, tot: 12, acu: 'Diana Contreras (mamá)', blood: 'A+', alerg: 'Alérgica al maní', faltas: 0 },
+  { id: 'jm', ini: 'JM', name: 'Juliana Mora', num: '9', age: 15, att: 11, tot: 12, acu: 'Carlos Mora (papá)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'ng', ini: 'NG', name: 'Natalia Gómez', num: '3', age: 16, att: 12, tot: 12, acu: 'Luz Gómez (mamá)', blood: 'B+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'ph', ini: 'PH', name: 'Paula Herrera', num: '11', age: 15, att: 9, tot: 12, acu: 'Sandra Herrera (mamá)', blood: 'O-', alerg: 'Ninguna', faltas: 0 },
+  { id: 'ml', ini: 'ML', name: 'Mariana Lizcano', num: '8', age: 16, att: 11, tot: 12, acu: 'Jorge Lizcano (papá)', blood: 'A+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'vc', ini: 'VC', name: 'Valeria Castro', num: '15', age: 14, att: 10, tot: 12, acu: 'Ruth Castro (abuela)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'ar', ini: 'AR', name: 'Antonia Rueda', num: '2', age: 15, att: 12, tot: 12, acu: 'Paola Rueda (mamá)', blood: 'AB+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'sf', ini: 'SF', name: 'Samantha Flórez', num: '17', age: 16, att: 11, tot: 12, acu: 'Mónica Flórez (mamá)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'lv', ini: 'LV', name: 'Luciana Vera', num: '6', age: 15, att: 10, tot: 12, acu: 'Natalia Vera (mamá)', blood: 'A-', alerg: 'Ninguna', faltas: 0 },
+  { id: 'eg', ini: 'EG', name: 'Emily Galvis', num: '13', age: 14, att: 7, tot: 12, acu: 'Fredy Galvis (papá)', blood: 'O+', alerg: 'Ninguna', faltas: 3 },
+  { id: 'ap', ini: 'AP', name: 'Ana Sofía Prada', num: '21', age: 15, att: 11, tot: 12, acu: 'Lina Prada (mamá)', blood: 'B+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'mi', ini: 'MI', name: 'María José Ibarra', num: '7', age: 16, att: 12, tot: 12, acu: 'Pedro Ibarra (papá)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'sa', ini: 'SA', name: 'Salomé Ardila', num: '19', age: 14, att: 8, tot: 12, acu: 'Claudia Ardila (mamá)', blood: 'A+', alerg: 'Asma: usa inhalador', faltas: 3 },
+];
+
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { sel: 'sa', q: '' }; }
+  renderVals() {
+    const accent = this.props.accent ?? '#6B3FA0';
+    const { sel, q } = this.state;
+    const qq = q.trim().toLowerCase();
+    const rows = PLAYERS.filter((p) => !qq || p.name.toLowerCase().includes(qq)).map((p) => ({
+      ...p, pct: Math.round(100 * p.att / p.tot), on: p.id === sel,
+      warn: p.faltas >= 3, salud: p.alerg !== 'Ninguna',
+      pick: () => this.setState({ sel: p.id }),
+      style: 'display:flex;align-items:center;gap:10px;width:100%;padding:10px 14px;border:0;border-top:1px solid #EEE9F2;font-family:inherit;color:#17121D;text-align:left;cursor:pointer;' + (p.id === sel ? 'background:#EDE7F3;' : 'background:#FFFFFF;'),
+    }));
+    const s = PLAYERS.find((p) => p.id === sel) || PLAYERS[0];
+    return {
+      accent, rows, q, setQ: (e) => this.setState({ q: e.target.value }), empty: rows.length === 0,
+      s: { ...s, pct: Math.round(100 * s.att / s.tot), first: s.name.split(' ')[0], hasAlerg: s.alerg !== 'Ninguna', warn: s.faltas >= 3 },
+    };
+  }
+}
+</script>
+</body>
+</html>

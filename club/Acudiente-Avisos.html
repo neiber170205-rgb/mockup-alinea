@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Acudiente: avisos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mk-width" content="390">
+<script src="../assets/js/mockup.js"></script>
+<script src="../assets/js/dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;1,800&amp;display=swap">
+<style>
+body{margin:0;background:#F5F3F7}
+a{color:#5B3A86}a:hover{color:#3B2259}
+input::placeholder,textarea::placeholder{color:#7A7085}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #6B3FA0;outline-offset:2px}
+</style>
+</helmet>
+<div style="width:390px;min-height:1350px;background:#F5F3F7;color:#17121D;font-family:Kanit, 'Trebuchet MS', Verdana, sans-serif;display:flex;flex-direction:column;">
+<header style="background:#0F0B14;color:#FFFFFF;padding:18px 20px 22px;display:flex;flex-direction:column;gap:14px;"><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><a href="Acudiente-Inicio.html" style="display:inline-flex;align-items:center;gap:8px;min-height:44px;color:#FFFFFF;text-decoration:none;font-size:1rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>Volver</a><span aria-label="Martha, acudiente" style="width:36px;height:36px;border-radius:50%;background:#3B2259;color:#FFFFFF;font-size:0.8125rem;font-weight:600;display:flex;align-items:center;justify-content:center;">MR</span></div><div style="display:flex;flex-direction:column;gap:4px;"><h1 style="margin:0;font-weight:800;font-style:italic;text-transform:uppercase;font-size:2rem;line-height:1;">Avisos</h1><p style="margin:0;font-size:0.9375rem;color:#D9D0E2;">Todo lo que el club te ha mandado</p></div></header>
+<main style="flex:1;padding:18px 16px 24px;display:flex;flex-direction:column;gap:14px;">
+<div role="group" aria-label="Filtrar por jugadora" style="display:flex;flex-wrap:wrap;gap:8px;"><template data-sc-for list="{{kids}}" as="k" hint-placeholder-count="3"><button type="button" onClick="{{k.pick}}" aria-pressed="{{k.on}}" style="{{k.style}}">{{k.label}}</button></template></div>
+<div role="group" aria-label="Filtrar por tipo" style="display:flex;flex-wrap:wrap;gap:8px;"><template data-sc-for list="{{tipos}}" as="t" hint-placeholder-count="4"><button type="button" onClick="{{t.pick}}" aria-pressed="{{t.on}}" style="{{t.style}}">{{t.label}}</button></template></div>
+<ul aria-label="Avisos" style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;">
+<template data-sc-for list="{{list}}" as="a" hint-placeholder-count="6">
+<li style="display:flex;flex-direction:column;gap:8px;">
+<template data-sc-if value="{{a.head}}" hint-placeholder-val="{{false}}"><h2 style="margin:6px 0 0;font-size:0.875rem;font-weight:600;color:#5E5468;">{{a.d}}</h2></template>
+<div style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:14px 16px;display:flex;gap:12px;">
+<span style="{{a.icoStyle}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4z"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg></span>
+<div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:4px;">
+<div style="display:flex;justify-content:space-between;gap:8px;"><strong style="font-size:1rem;font-weight:600;">{{a.titulo}}</strong><span style="flex:none;font-size:0.8125rem;color:#5E5468;">{{a.t}}</span></div>
+<p style="margin:0;font-size:0.9375rem;line-height:1.45;color:#2B2233;">{{a.txt}}</p>
+<span style="display:flex;align-items:center;gap:6px;font-size:0.8125rem;color:#5E5468;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Llegó por WhatsApp · {{a.quien}}</span>
+</div>
+</div>
+</li>
+</template>
+</ul>
+<template data-sc-if value="{{empty}}" hint-placeholder-val="{{false}}"><p style="margin:0;color:#5E5468;">No hay avisos de este tipo.</p></template>
+</main>
+<nav aria-label="Menú del portal" style="display:flex;border-top:1px solid #E4DEEA;background:#FFFFFF;">
+<a href="Acudiente-Inicio.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M4 11l8-7 8 7"></path><path d="M6 10v10h12V10"></path></svg>Inicio</a>
+<a href="Acudiente-Pagos.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="2" y="6" width="20" height="13" rx="2"></rect><circle cx="12" cy="12.5" r="2.5"></circle></svg>Pagos</a>
+<a href="Acudiente-Torneos.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg>Torneos</a>
+<a href="Acudiente-Carne.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M6 16c.6-1.5 1.7-2 3-2s2.4.5 3 2M15 10h3M15 13h3"></path></svg>Carné</a>
+<a href="Acudiente-Perfil.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>Perfil</a>
+</nav></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#6B3FA0","options":["#6B3FA0","#8B3FD9","#7A4C9E"]},"$preview":{"width":390,"height":1350}}'>
+const AV = [
+  { d: 'Hoy', t: '9:40 a. m.', tipo: 'pago', kid: 'val', titulo: 'Recordatorio de pago', txt: 'La mensualidad de Valentina vence el 30 de noviembre: $54.000.' },
+  { d: 'Ayer', t: '6:12 p. m.', tipo: 'entreno', kid: 'all', titulo: 'Entreno cancelado', txt: 'El entreno del lunes 23 se cancela por lluvia.' },
+  { d: 'Ayer', t: '11:05 a. m.', tipo: 'torneo', kid: 'val', titulo: 'Convocatoria', txt: 'Valentina fue convocada a la Copa Oriente. Confirma y firma el permiso.' },
+  { d: 'Esta semana', t: 'Sáb 21', tipo: 'entreno', kid: 'ana', titulo: 'Asistencia', txt: 'Ana Lucía no vino al entreno del sábado.' },
+  { d: 'Esta semana', t: 'Vie 20', tipo: 'general', kid: 'all', titulo: 'Nuevo uniforme', txt: 'Ya llegaron los uniformes de 2027. Se entregan en la cancha.' },
+  { d: 'Antes', t: '3 nov', tipo: 'pago', kid: 'ana', titulo: 'Pago aprobado', txt: 'El club aprobó el pago de noviembre de Ana Lucía.' },
+];
+const TIPOS = [['todos', 'Todos'], ['pago', 'Pagos'], ['entreno', 'Entrenos'], ['torneo', 'Torneos']];
+const COLOR = { pago: ['#DCF2E5', '#135C34'], entreno: ['#EDE7F3', '#3B2259'], torneo: ['#3B2259', '#FFFFFF'], general: ['#ECE8F0', '#4A4253'] };
+const NOMBRE = { val: 'Valentina', ana: 'Ana Lucía', all: 'Las dos' };
+const chip = (on) => 'display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;font-family:inherit;font-size:0.875rem;cursor:pointer;' + (on ? 'background:#3B2259;color:#FFFFFF;border:1.5px solid #3B2259;font-weight:500;' : 'background:#FFFFFF;color:#17121D;border:1.5px solid #C9BED6;');
+
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tipo: 'todos', kid: 'todas' }; }
+  renderVals() {
+    const { tipo, kid } = this.state;
+    const list = AV.filter((a) => (tipo === 'todos' || a.tipo === tipo) && (kid === 'todas' || a.kid === kid || a.kid === 'all'))
+      .map((a, i, arr) => ({ ...a, quien: NOMBRE[a.kid], head: i === 0 || arr[i - 1].d !== a.d,
+        icoStyle: 'flex:none;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:' + COLOR[a.tipo][0] + ';color:' + COLOR[a.tipo][1] + ';' }));
+    return {
+      accent: this.props.accent ?? '#6B3FA0', list, empty: list.length === 0,
+      tipos: TIPOS.map(([id, label]) => ({ label, on: id === tipo, style: chip(id === tipo), pick: () => this.setState({ tipo: id }) })),
+      kids: [['todas', 'Las dos'], ['val', 'Valentina'], ['ana', 'Ana Lucía']].map(([id, label]) => ({ label, on: id === kid, style: chip(id === kid), pick: () => this.setState({ kid: id }) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

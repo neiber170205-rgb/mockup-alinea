@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Portal del acudiente: pagos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mk-width" content="390">
+<script src="../assets/js/mockup.js"></script>
+<script src="../assets/js/dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;1,800&amp;display=swap">
+<style>
+body{margin:0;background:#F5F3F7}
+a{color:#5B3A86}a:hover{color:#3B2259}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #6B3FA0;outline-offset:2px}
+</style>
+</helmet>
+<div style="width:390px;min-height:1300px;background:#F5F3F7;color:#17121D;font-family:Kanit, 'Trebuchet MS', Verdana, sans-serif;display:flex;flex-direction:column;">
+
+<header style="background:#0F0B14;color:#FFFFFF;padding:18px 20px 20px;display:flex;flex-direction:column;gap:14px;">
+<div style="display:flex;align-items:center;gap:10px;">
+<span style="display:block;width:36px;height:36px;border-radius:50%;overflow:hidden;flex:none;"><img src="../assets/img/escudo-black-panthers.jpg" alt="" style="display:block;width:104%;height:104%;margin:-2%;"></span>
+<span style="font-weight:800;font-style:italic;text-transform:uppercase;font-size:1rem;">Black Panthers</span>
+</div>
+<h1 style="margin:0;font-weight:800;font-style:italic;text-transform:uppercase;font-size:2rem;line-height:1;">Pagos</h1>
+<div role="group" aria-label="Escoge a tu jugadora" style="display:flex;gap:8px;">
+<template data-sc-for list="{{kids}}" as="k" hint-placeholder-count="2">
+<template data-sc-if value="{{k.active}}" hint-placeholder-val="{{false}}">
+<button type="button" aria-pressed="true" onClick="{{k.pick}}" style="flex:1;min-height:44px;border-radius:10px;border:1.5px solid #FFFFFF;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:0.9375rem;font-weight:600;cursor:pointer;">{{k.first}}</button>
+</template>
+<template data-sc-if value="{{k.inactive}}" hint-placeholder-val="{{true}}">
+<button type="button" aria-pressed="false" onClick="{{k.pick}}" style="flex:1;min-height:44px;border-radius:10px;border:1.5px solid #4A3560;background:transparent;color:#FFFFFF;font-family:inherit;font-size:0.9375rem;cursor:pointer;">{{k.first}}</button>
+</template>
+</template>
+</div>
+</header>
+
+<main style="flex:1;padding:18px 16px 24px;display:flex;flex-direction:column;gap:14px;">
+
+<section aria-label="Mensualidad de noviembre" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+<h2 style="margin:0;font-size:1rem;font-weight:500;color:#5E5468;">Noviembre</h2>
+<span style="display:inline-flex;padding:4px 10px;border-radius:6px;background:{{kid.payBg}};color:{{kid.payFg}};font-size:0.8125rem;font-weight:500;">{{kid.payLabel}}</span>
+</div>
+<p style="margin:0;font-size:2rem;font-weight:600;line-height:1.1;font-variant-numeric:tabular-nums;">$54.000</p>
+<p style="margin:0;font-size:0.9375rem;color:#2B2233;">{{kid.payLine}}</p>
+<p style="margin:0;font-size:0.875rem;color:#5E5468;">$60.000 con 10 % de descuento por hermanas</p>
+<template data-sc-if value="{{kid.canReport}}" hint-placeholder-val="{{true}}">
+<button type="button" onClick="{{kid.openReport}}" style="min-height:50px;margin-top:4px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;">Reportar pago</button>
+</template>
+<template data-sc-if value="{{kid.reporting}}" hint-placeholder-val="{{false}}">
+<div style="display:flex;flex-direction:column;gap:12px;margin-top:4px;padding-top:12px;border-top:1px solid #EEE9F2;">
+<div style="display:flex;flex-direction:column;gap:6px;">
+<label for="ap-medio" style="font-size:0.9375rem;font-weight:500;">¿Cómo pagaste?</label>
+<select id="ap-medio" style="height:48px;padding:0 12px;border-radius:8px;border:1.5px solid #8E82A0;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;">
+<option>Nequi</option>
+<option>Transferencia</option>
+<option>Efectivo al entrenador</option>
+</select>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;">
+<label for="ap-foto" style="font-size:0.9375rem;font-weight:500;">Foto del comprobante</label>
+<input id="ap-foto" type="file" accept="image/*,application/pdf" style="font-family:inherit;font-size:0.9375rem;">
+</div>
+<div style="display:flex;gap:8px;">
+<button type="button" onClick="{{kid.cancelReport}}" style="flex:1;min-height:48px;border-radius:10px;border:1.5px solid #C9BED6;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;font-weight:500;cursor:pointer;">Cancelar</button>
+<button type="button" onClick="{{kid.sendReport}}" style="flex:1.4;min-height:48px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;">Enviar comprobante</button>
+</div>
+</div>
+</template>
+<template data-sc-if value="{{kid.reported}}" hint-placeholder-val="{{false}}">
+<p role="status" style="margin:4px 0 0;display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:10px;background:#EDE7F3;color:#3B2259;font-size:0.9375rem;line-height:1.45;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Recibimos tu comprobante. Te avisamos por WhatsApp cuando el club lo apruebe.</p>
+</template>
+<template data-sc-if value="{{kid.isPaid}}" hint-placeholder-val="{{false}}">
+<a href="#" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;margin-top:4px;border-radius:10px;border:1.5px solid #C9BED6;color:#17121D;text-decoration:none;font-size:1rem;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path></svg>Descargar recibo</a>
+</template>
+</section>
+
+<section aria-label="Cómo pagar" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;overflow:hidden;">
+<h2 style="margin:0;padding:14px 16px 8px;font-size:1rem;font-weight:600;">Cómo pagar</h2>
+<div style="display:flex;align-items:center;gap:12px;padding:10px 16px;border-top:1px solid #EEE9F2;">
+<span style="flex:1;min-width:0;display:flex;flex-direction:column;"><span style="font-size:0.875rem;color:#5E5468;">Nequi</span><span style="font-weight:500;font-variant-numeric:tabular-nums;">[número del club]</span></span>
+<button type="button" onClick="{{copyNequi}}" style="flex:none;min-height:40px;padding:0 12px;border-radius:8px;border:1.5px solid #C9BED6;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:0.875rem;font-weight:500;cursor:pointer;">{{copyLabel}}</button>
+</div>
+<div style="display:flex;flex-direction:column;padding:10px 16px;border-top:1px solid #EEE9F2;">
+<span style="font-size:0.875rem;color:#5E5468;">Transferencia</span><span style="font-weight:500;">[banco, tipo y número de cuenta]</span>
+</div>
+<div style="display:flex;flex-direction:column;padding:10px 16px 14px;border-top:1px solid #EEE9F2;">
+<span style="font-size:0.875rem;color:#5E5468;">Efectivo</span><span style="font-weight:500;">Al entrenador, antes del entreno</span>
+</div>
+</section>
+
+<section aria-label="Historial de pagos" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;overflow:hidden;">
+<h2 style="margin:0;padding:14px 16px 8px;font-size:1rem;font-weight:600;">Historial de {{kid.first}}</h2>
+<ul style="list-style:none;margin:0;padding:0;">
+<template data-sc-for list="{{kid.history}}" as="h" hint-placeholder-count="6">
+<li style="display:flex;align-items:center;gap:10px;padding:10px 16px;border-top:1px solid #EEE9F2;">
+<span style="flex:1;min-width:0;display:flex;flex-direction:column;"><span style="font-weight:500;">{{h.month}}</span><span style="font-size:0.8125rem;color:#5E5468;">{{h.detail}}</span></span>
+<span style="flex:none;font-size:0.9375rem;font-variant-numeric:tabular-nums;">{{h.value}}</span>
+<a href="#" aria-label="Descargar recibo de {{h.month}}" style="flex:none;width:40px;height:40px;border-radius:8px;background:#EDE7F3;color:#3B2259;display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"></path></svg></a>
+</li>
+</template>
+</ul>
+</section>
+
+<p style="margin:0;display:flex;align-items:flex-start;gap:8px;font-size:0.875rem;line-height:1.45;color:#5E5468;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Cada recibo también te llega por WhatsApp cuando el club aprueba el pago.</p>
+</main>
+
+<nav aria-label="Menú del portal" style="display:flex;border-top:1px solid #E4DEEA;background:#FFFFFF;">
+<a href="Acudiente-Inicio.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7"></path><path d="M6 10v10h12V10"></path></svg>Inicio</a>
+<a href="Acudiente-Pagos.html" aria-current="page" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#3B2259;text-decoration:none;font-size:0.8125rem;font-weight:600;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"></rect><circle cx="12" cy="12.5" r="2.5"></circle></svg>Pagos</a>
+<a href="Acudiente-Torneos.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg>Torneos</a>
+<a href="Acudiente-Carne.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M6 16c.6-1.5 1.7-2 3-2s2.4.5 3 2M15 10h3M15 13h3"></path></svg>Carné</a>
+<a href="Acudiente-Perfil.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>Perfil</a>
+</nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#6B3FA0","options":["#6B3FA0","#8B3FD9","#7A4C9E"]},"$preview":{"width":390,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const accent = this.props.accent ?? '#6B3FA0';
+    const current = s.kid || 'val';
+    const report = s.report || {};
+    const past = (extra) => [
+      { month: 'Octubre', detail: 'Pagada el 4 de octubre · Nequi', value: '$54.000' },
+      { month: 'Septiembre', detail: 'Pagada el 2 de septiembre · Nequi', value: '$54.000' },
+      { month: 'Agosto', detail: 'Pagada el 5 de agosto · Efectivo', value: '$54.000' },
+      { month: 'Julio', detail: 'Pagada el 3 de julio · Nequi', value: '$54.000' },
+      { month: 'Inscripción', detail: 'Pagada el 12 de febrero · Transferencia', value: '$[valor]' }
+    ].concat(extra || []);
+    const data = {
+      val: { first: 'Valentina', pay: 'Pendiente', line: 'Vence el 30 de noviembre', history: past() },
+      ana: { first: 'Ana Lucía', pay: 'Al día', line: 'Pagada el 3 de noviembre por Nequi', history: [{ month: 'Noviembre', detail: 'Pagada el 3 de noviembre · Nequi', value: '$54.000' }].concat(past()) }
+    };
+    const d = data[current];
+    const r = report[current] || '';
+    const isPaid = d.pay === 'Al día';
+    let label = d.pay;
+    let tone = isPaid ? ['#DCF2E5', '#135C34'] : ['#FCEFCF', '#6E4700'];
+    if (!isPaid && r === 'sent') { label = 'En revisión'; tone = ['#EDE7F3', '#3B2259']; }
+    const setReport = (v) => this.setState({ report: Object.assign({}, report, { [current]: v }) });
+    return {
+      accent: accent,
+      kids: [['val', 'Valentina'], ['ana', 'Ana Lucía']].map((k) => ({ first: k[1], active: k[0] === current, inactive: k[0] !== current, pick: () => this.setState({ kid: k[0] }) })),
+      kid: {
+        first: d.first, history: d.history, payLabel: label, payBg: tone[0], payFg: tone[1], payLine: d.line,
+        isPaid: isPaid, canReport: !isPaid && r === '', reporting: !isPaid && r === 'form', reported: !isPaid && r === 'sent',
+        openReport: () => setReport('form'), cancelReport: () => setReport(''), sendReport: () => setReport('sent')
+      },
+      copyLabel: s.copied ? 'Copiado' : 'Copiar',
+      copyNequi: () => this.setState({ copied: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

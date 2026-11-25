@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Portal del acudiente: torneos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mk-width" content="390">
+<script src="../assets/js/mockup.js"></script>
+<script src="../assets/js/dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;1,800&amp;display=swap">
+<style>
+body{margin:0;background:#F5F3F7}
+a{color:#5B3A86}a:hover{color:#3B2259}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #6B3FA0;outline-offset:2px}
+</style>
+</helmet>
+<div style="width:390px;min-height:1400px;background:#F5F3F7;color:#17121D;font-family:Kanit, 'Trebuchet MS', Verdana, sans-serif;display:flex;flex-direction:column;">
+
+<header style="background:#0F0B14;color:#FFFFFF;padding:18px 20px 20px;display:flex;flex-direction:column;gap:14px;">
+<div style="display:flex;align-items:center;gap:10px;">
+<span style="display:block;width:36px;height:36px;border-radius:50%;overflow:hidden;flex:none;"><img src="../assets/img/escudo-black-panthers.jpg" alt="" style="display:block;width:104%;height:104%;margin:-2%;"></span>
+<span style="font-weight:800;font-style:italic;text-transform:uppercase;font-size:1rem;">Black Panthers</span>
+</div>
+<h1 style="margin:0;font-weight:800;font-style:italic;text-transform:uppercase;font-size:2rem;line-height:1;">Torneos</h1>
+<div role="group" aria-label="Escoge a tu jugadora" style="display:flex;gap:8px;">
+<template data-sc-for list="{{kids}}" as="k" hint-placeholder-count="2">
+<template data-sc-if value="{{k.active}}" hint-placeholder-val="{{false}}">
+<button type="button" aria-pressed="true" onClick="{{k.pick}}" style="flex:1;min-height:44px;border-radius:10px;border:1.5px solid #FFFFFF;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:0.9375rem;font-weight:600;cursor:pointer;">{{k.first}}</button>
+</template>
+<template data-sc-if value="{{k.inactive}}" hint-placeholder-val="{{true}}">
+<button type="button" aria-pressed="false" onClick="{{k.pick}}" style="flex:1;min-height:44px;border-radius:10px;border:1.5px solid #4A3560;background:transparent;color:#FFFFFF;font-family:inherit;font-size:0.9375rem;cursor:pointer;">{{k.first}}</button>
+</template>
+</template>
+</div>
+</header>
+
+<main style="flex:1;padding:18px 16px 24px;display:flex;flex-direction:column;gap:14px;">
+<h2 style="margin:0;font-size:1.0625rem;font-weight:600;">Próximo torneo</h2>
+
+<template data-sc-if value="{{isVal}}" hint-placeholder-val="{{true}}">
+<div style="display:flex;flex-direction:column;gap:14px;">
+<section aria-label="Copa Oriente" style="background:#3B2259;color:#FFFFFF;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px;">
+<div style="display:flex;flex-direction:column;gap:2px;">
+<span style="font-size:0.875rem;color:#D9C7E6;">Valentina fue convocada</span>
+<span style="font-weight:800;font-style:italic;text-transform:uppercase;font-size:1.625rem;line-height:1.05;">Copa Oriente</span>
+</div>
+<dl style="margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:0.9375rem;">
+<dt style="color:#D9C7E6;">Cuándo</dt><dd style="margin:0;">6 y 7 de diciembre</dd>
+<dt style="color:#D9C7E6;">Dónde</dt><dd style="margin:0;">Bucaramanga</dd>
+<dt style="color:#D9C7E6;">Salida</dt><dd style="margin:0;">Sábado 6, 5:00 a. m., desde la cancha</dd>
+<dt style="color:#D9C7E6;">Inscripción</dt><dd style="margin:0;">$40.000 · pagada</dd>
+</dl>
+
+<template data-sc-if value="{{tourAsk}}" hint-placeholder-val="{{true}}">
+<div style="display:flex;flex-direction:column;gap:8px;">
+<p style="margin:0;font-size:0.9375rem;font-weight:500;">¿Valentina va al torneo?</p>
+<div style="display:flex;gap:8px;">
+<button type="button" onClick="{{tourNo}}" style="flex:1;min-height:48px;border-radius:10px;border:1.5px solid #D9C7E6;background:transparent;color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:500;cursor:pointer;">No va</button>
+<button type="button" onClick="{{tourYes}}" style="flex:1;min-height:48px;border:none;border-radius:10px;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;">Sí va</button>
+</div>
+</div>
+</template>
+
+<template data-sc-if value="{{tourPermit}}" hint-placeholder-val="{{false}}">
+<div style="display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:10px;background:#FFFFFF;color:#17121D;">
+<p style="margin:0;font-size:1rem;font-weight:600;">Permiso de viaje</p>
+<p style="margin:0;font-size:0.9375rem;line-height:1.5;color:#2B2233;">Yo, Martha Rojas, autorizo a Valentina Rojas a viajar con Black Panthers Voleibol a Bucaramanga del 6 al 7 de diciembre de 2026, a cargo del entrenador Andrés.</p>
+<label style="display:flex;align-items:flex-start;gap:10px;font-size:0.9375rem;line-height:1.4;cursor:pointer;"><input type="checkbox" checked="{{agree}}" onChange="{{toggleAgree}}" style="flex:none;width:20px;height:20px;margin:1px 0 0;accent-color:#6B3FA0;">Leí el permiso y estoy de acuerdo</label>
+<button type="button" onClick="{{sign}}" style="min-height:48px;border:none;border-radius:10px;background:{{signBg}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;">Firmar permiso</button>
+<template data-sc-if value="{{signError}}" hint-placeholder-val="{{false}}">
+<p role="alert" style="margin:0;font-size:0.875rem;color:#8F1D17;">Marca la casilla para poder firmar.</p>
+</template>
+</div>
+</template>
+
+<template data-sc-if value="{{tourSigned}}" hint-placeholder-val="{{false}}">
+<p role="status" style="margin:0;display:flex;align-items:flex-start;gap:10px;font-size:0.9375rem;line-height:1.45;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D49BCB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px;"><path d="M5 12l4 4 10-10"></path></svg>Va al torneo y el permiso quedó firmado. Te enviamos la copia por WhatsApp.</p>
+</template>
+
+<template data-sc-if value="{{tourDeclined}}" hint-placeholder-val="{{false}}">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+<p role="status" style="margin:0;font-size:0.9375rem;">Le avisamos al entrenador que no va.</p>
+<button type="button" onClick="{{tourReset}}" style="flex:none;min-height:44px;padding:0 4px;border:none;background:transparent;color:#FFFFFF;font-family:inherit;font-size:0.9375rem;text-decoration:underline;cursor:pointer;">Cambiar</button>
+</div>
+</template>
+</section>
+
+<section aria-label="Qué llevar" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;">
+<h2 style="margin:0;font-size:1rem;font-weight:600;">Qué llevar</h2>
+<ul style="margin:0;padding:0 0 0 1.1rem;display:flex;flex-direction:column;gap:4px;font-size:0.9375rem;line-height:1.45;color:#2B2233;">
+<li>Uniforme morado y uniforme negro</li>
+<li>Rodilleras y tenis de cancha</li>
+<li>Documento de identidad</li>
+<li>Agua y algo para comer en el viaje</li>
+</ul>
+</section>
+</div>
+</template>
+
+<template data-sc-if value="{{isAna}}" hint-placeholder-val="{{false}}">
+<section aria-label="Festival Infantil" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px;">
+<span style="font-weight:600;font-size:1.0625rem;">Festival Infantil</span>
+<span style="font-size:0.9375rem;color:#5E5468;">13 de diciembre · Cúcuta</span>
+<p style="margin:6px 0 0;display:flex;align-items:flex-start;gap:8px;font-size:0.9375rem;line-height:1.45;color:#2B2233;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>La entrenadora todavía no ha convocado. Si Ana Lucía va, te avisamos por WhatsApp.</p>
+</section>
+</template>
+
+<h2 style="margin:8px 0 0;font-size:1.0625rem;font-weight:600;">Torneos jugados</h2>
+<template data-sc-if value="{{hasPlayed}}" hint-placeholder-val="{{true}}">
+<ul style="list-style:none;margin:0;padding:0;background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;overflow:hidden;">
+<template data-sc-for list="{{played}}" as="p" hint-placeholder-count="2">
+<li style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid #EEE9F2;">
+<span style="flex:none;width:44px;height:44px;border-radius:50%;background:{{p.medal}};color:#0F0B14;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg></span>
+<span style="flex:1;min-width:0;display:flex;flex-direction:column;"><span style="font-weight:500;">{{p.name}}</span><span style="font-size:0.875rem;color:#5E5468;">{{p.when}}</span></span>
+<span style="flex:none;font-size:0.9375rem;font-weight:600;">{{p.result}}</span>
+</li>
+</template>
+</ul>
+</template>
+<template data-sc-if value="{{noPlayed}}" hint-placeholder-val="{{false}}">
+<p style="margin:0;padding:14px 16px;border-radius:14px;background:#FFFFFF;border:1px solid #E4DEEA;font-size:0.9375rem;color:#5E5468;">Ana Lucía todavía no ha jugado torneos con el club.</p>
+</template>
+</main>
+
+<nav aria-label="Menú del portal" style="display:flex;border-top:1px solid #E4DEEA;background:#FFFFFF;">
+<a href="Acudiente-Inicio.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7"></path><path d="M6 10v10h12V10"></path></svg>Inicio</a>
+<a href="Acudiente-Pagos.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"></rect><circle cx="12" cy="12.5" r="2.5"></circle></svg>Pagos</a>
+<a href="Acudiente-Torneos.html" aria-current="page" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#3B2259;text-decoration:none;font-size:0.8125rem;font-weight:600;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg>Torneos</a>
+<a href="Acudiente-Carne.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><circle cx="9" cy="11" r="2"></circle><path d="M6 16c.6-1.5 1.7-2 3-2s2.4.5 3 2M15 10h3M15 13h3"></path></svg>Carné</a>
+<a href="Acudiente-Perfil.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>Perfil</a>
+</nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#6B3FA0","options":["#6B3FA0","#8B3FD9","#7A4C9E"]},"$preview":{"width":390,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const accent = this.props.accent ?? '#6B3FA0';
+    const current = s.kid || 'val';
+    const tour = s.tour || '';
+    const agree = !!s.agree;
+    const played = current === 'val'
+      ? [
+          { name: 'Interclubes', when: '18 y 19 de octubre · Cúcuta', result: '2.º puesto', medal: '#D9DCE3' },
+          { name: 'Torneo de vacaciones', when: '12 de julio · Villa del Rosario', result: 'Participó', medal: '#EDE7F3' }
+        ]
+      : [];
+    return {
+      accent: accent,
+      kids: [['val', 'Valentina'], ['ana', 'Ana Lucía']].map((k) => ({ first: k[1], active: k[0] === current, inactive: k[0] !== current, pick: () => this.setState({ kid: k[0] }) })),
+      isVal: current === 'val',
+      isAna: current === 'ana',
+      tourAsk: tour === '',
+      tourPermit: tour === 'yes',
+      tourSigned: tour === 'signed',
+      tourDeclined: tour === 'no',
+      tourYes: () => this.setState({ tour: 'yes', signError: false }),
+      tourNo: () => this.setState({ tour: 'no' }),
+      tourReset: () => this.setState({ tour: '', agree: false }),
+      agree: agree,
+      toggleAgree: () => this.setState({ agree: !agree, signError: false }),
+      signBg: agree ? accent : '#8E82A0',
+      signError: !!s.signError,
+      sign: () => (agree ? this.setState({ tour: 'signed', signError: false }) : this.setState({ signError: true })),
+      played: played,
+      hasPlayed: played.length > 0,
+      noPlayed: played.length === 0
+    };
+  }
+}
+</script>
+</body>
+</html>

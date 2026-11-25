@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Entrenador: inicio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mk-width" content="390">
+<script src="../assets/js/mockup.js"></script>
+<script src="../assets/js/dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;1,800&amp;display=swap">
+<style>
+body{margin:0;background:#F5F3F7}
+a{color:#5B3A86}a:hover{color:#3B2259}
+input::placeholder,textarea::placeholder{color:#7A7085}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #6B3FA0;outline-offset:2px}
+</style>
+</helmet>
+<div style="width:390px;min-height:1300px;background:#F5F3F7;color:#17121D;font-family:Kanit, 'Trebuchet MS', Verdana, sans-serif;display:flex;flex-direction:column;">
+<header style="background:#0F0B14;color:#FFFFFF;padding:18px 20px 22px;display:flex;flex-direction:column;gap:14px;"><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:10px;"><span style="display:block;width:36px;height:36px;border-radius:50%;overflow:hidden;flex:none;"><img src="../assets/img/escudo-black-panthers.jpg" alt="" style="display:block;width:104%;height:104%;margin:-2%;"></span><span style="font-weight:800;font-style:italic;text-transform:uppercase;font-size:1rem;">Black Panthers</span></span><span aria-label="Andrés, entrenador" style="width:36px;height:36px;border-radius:50%;background:#3B2259;color:#FFFFFF;font-size:0.8125rem;font-weight:600;display:flex;align-items:center;justify-content:center;">AN</span></div><div style="display:flex;flex-direction:column;gap:4px;"><h1 style="margin:0;font-weight:800;font-style:italic;text-transform:uppercase;font-size:2rem;line-height:1;">Hola, Andrés</h1><p style="margin:0;font-size:0.9375rem;color:#D9D0E2;">Martes 24 de noviembre</p></div></header>
+<main style="flex:1;padding:18px 16px 24px;display:flex;flex-direction:column;gap:14px;">
+<section aria-label="Entrenos de hoy" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;overflow:hidden;">
+<h2 style="margin:0;padding:14px 16px 10px;font-size:1.0625rem;font-weight:600;">Tus entrenos de hoy</h2>
+<ul style="list-style:none;margin:0;padding:0;">
+<li style="display:flex;flex-direction:column;gap:10px;padding:14px 16px;border-top:1px solid #EEE9F2;"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;"><span style="display:flex;flex-direction:column;"><span style="font-size:1.0625rem;font-weight:600;">Infantil</span><span style="font-size:0.875rem;color:#5E5468;">3:00 a 4:15 p. m. · 12 de 13 vinieron</span></span><span style="flex:none;padding:4px 10px;border-radius:6px;background:#DCF2E5;color:#135C34;font-size:0.8125rem;font-weight:500;">Lista tomada</span></div></li><li style="display:flex;flex-direction:column;gap:10px;padding:14px 16px;border-top:1px solid #EEE9F2;"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;"><span style="display:flex;flex-direction:column;"><span style="font-size:1.0625rem;font-weight:600;">Juvenil</span><span style="font-size:0.875rem;color:#5E5468;">4:30 a 6:00 p. m. · Cancha principal</span></span><span style="flex:none;padding:4px 10px;border-radius:6px;background:#3B2259;color:#FFFFFF;font-size:0.8125rem;font-weight:500;">Ahora</span></div><a href="Entrenador-Asistencia.html" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4h6v3H9z"></path><path d="M9 14l2 2 4-4"></path></svg>Tomar asistencia</a></li><li style="display:flex;flex-direction:column;gap:10px;padding:14px 16px;border-top:1px solid #EEE9F2;"><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;"><span style="display:flex;flex-direction:column;"><span style="font-size:1.0625rem;font-weight:600;">Mayores</span><span style="font-size:0.875rem;color:#5E5468;">7:00 a 8:30 p. m. · Cancha principal</span></span><span style="flex:none;padding:4px 10px;border-radius:6px;background:#ECE8F0;color:#4A4253;font-size:0.8125rem;font-weight:500;">Más tarde</span></div></li>
+</ul>
+</section>
+
+<section aria-label="Alerta de faltas" style="background:#FCEFCF;border-radius:14px;padding:14px 16px;display:flex;gap:12px;">
+<span style="flex:none;color:#6E4700;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M12 4L2 20h20z"></path><path d="M12 10v4M12 17h.01"></path></svg></span>
+<div style="display:flex;flex-direction:column;gap:4px;">
+<h2 style="margin:0;font-size:1rem;font-weight:600;color:#6E4700;">2 jugadoras van con 3 faltas</h2>
+<p style="margin:0;font-size:0.9375rem;line-height:1.45;color:#4A3500;">Emily Galvis y Salomé Ardila, del Juvenil. El club ya les avisó a sus familias.</p>
+<a href="Entrenador-Grupo.html" style="align-self:flex-start;display:inline-flex;align-items:center;min-height:40px;font-size:0.9375rem;font-weight:500;color:#4A3500;">Ver el grupo</a>
+</div>
+</section>
+
+<section aria-label="Próximo torneo" style="background:#3B2259;color:#FFFFFF;border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;">
+<div style="display:flex;align-items:center;gap:10px;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg><h2 style="margin:0;font-size:1.0625rem;font-weight:600;">Copa Oriente</h2></div>
+<p style="margin:0;font-size:0.9375rem;color:#E9E3EF;">6 y 7 de diciembre · Bucaramanga · Juvenil</p>
+<p style="margin:0;font-size:0.9375rem;">9 de 12 confirmaron · 3 permisos sin firmar</p>
+<a href="Entrenador-Convocatoria.html" style="display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:10px;background:#FFFFFF;color:#0F0B14;text-decoration:none;font-size:1rem;font-weight:600;">Ver convocatoria</a>
+</section>
+
+<a href="Entrenador-Avisar.html" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;color:#17121D;text-decoration:none;">
+<span style="flex:none;width:40px;height:40px;border-radius:10px;background:#EDE7F3;color:#3B2259;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg></span>
+<span style="flex:1;display:flex;flex-direction:column;"><span style="font-size:1rem;font-weight:600;">Avisar al grupo</span><span style="font-size:0.875rem;color:#5E5468;">Les llega a las familias por WhatsApp</span></span>
+</a>
+
+<section aria-label="Esta semana" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;">
+<h2 style="margin:0;font-size:1.0625rem;font-weight:600;">Esta semana</h2>
+<ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;font-size:0.9375rem;">
+<li style="display:flex;justify-content:space-between;gap:8px;"><span>Jueves 26</span><span style="color:#5E5468;">Infantil, Juvenil y Mayores</span></li>
+<li style="display:flex;justify-content:space-between;gap:8px;"><span>Sábado 28</span><span style="color:#5E5468;">Juvenil · 8:00 a. m.</span></li>
+<li style="display:flex;justify-content:space-between;gap:8px;"><span>Domingo 29</span><span style="color:#5E5468;">Sin entrenos</span></li>
+</ul>
+</section>
+</main>
+<nav aria-label="Menú del entrenador" style="display:flex;border-top:1px solid #E4DEEA;background:#FFFFFF;">
+<a href="Entrenador-Inicio.html" aria-current="page" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#3B2259;text-decoration:none;font-size:0.8125rem;font-weight:600;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M4 11l8-7 8 7"></path><path d="M6 10v10h12V10"></path></svg>Inicio</a>
+<a href="Entrenador-Asistencia.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4h6v3H9z"></path><path d="M9 14l2 2 4-4"></path></svg>Asistencia</a>
+<a href="Entrenador-Grupo.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"></path><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M21.5 20c0-2.9-1.8-5.3-4.3-6.2"></path></svg>Grupo</a>
+<a href="Entrenador-Avisar.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Avisar</a>
+<a href="Entrenador-Convocatoria.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg>Torneos</a>
+</nav></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#6B3FA0","options":["#6B3FA0","#8B3FD9","#7A4C9E"]},"$preview":{"width":390,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#6B3FA0' };
+  }
+}
+</script>
+</body>
+</html>

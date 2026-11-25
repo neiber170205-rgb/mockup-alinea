@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Entrenador: convocatoria</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mk-width" content="390">
+<script src="../assets/js/mockup.js"></script>
+<script src="../assets/js/dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;1,800&amp;display=swap">
+<style>
+body{margin:0;background:#F5F3F7}
+a{color:#5B3A86}a:hover{color:#3B2259}
+input::placeholder,textarea::placeholder{color:#7A7085}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #6B3FA0;outline-offset:2px}
+</style>
+</helmet>
+<div style="width:390px;min-height:1450px;background:#F5F3F7;color:#17121D;font-family:Kanit, 'Trebuchet MS', Verdana, sans-serif;display:flex;flex-direction:column;">
+<header style="background:#0F0B14;color:#FFFFFF;padding:18px 20px 22px;display:flex;flex-direction:column;gap:14px;"><div style="display:flex;align-items:center;justify-content:space-between;gap:12px;"><span style="display:flex;align-items:center;gap:10px;"><span style="display:block;width:36px;height:36px;border-radius:50%;overflow:hidden;flex:none;"><img src="../assets/img/escudo-black-panthers.jpg" alt="" style="display:block;width:104%;height:104%;margin:-2%;"></span><span style="font-weight:800;font-style:italic;text-transform:uppercase;font-size:1rem;">Black Panthers</span></span><span aria-label="Andrés, entrenador" style="width:36px;height:36px;border-radius:50%;background:#3B2259;color:#FFFFFF;font-size:0.8125rem;font-weight:600;display:flex;align-items:center;justify-content:center;">AN</span></div><div style="display:flex;flex-direction:column;gap:4px;"><h1 style="margin:0;font-weight:800;font-style:italic;text-transform:uppercase;font-size:2rem;line-height:1;">Copa Oriente</h1><p style="margin:0;font-size:0.9375rem;color:#D9D0E2;">6 y 7 de diciembre · Bucaramanga · Juvenil</p></div></header>
+<main style="flex:1;padding:18px 16px 24px;display:flex;flex-direction:column;gap:14px;">
+<section aria-label="Resumen" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;">
+<p style="margin:0;display:flex;align-items:baseline;gap:8px;"><span style="font-size:1.75rem;font-weight:600;line-height:1;font-variant-numeric:tabular-nums;">{{n}}</span><span style="color:#5E5468;">convocadas de 14</span></p>
+<p style="margin:0;font-size:0.875rem;color:#5E5468;font-variant-numeric:tabular-nums;">{{firmados}} con permiso firmado · {{faltan}} sin firmar · {{sinResp}} sin responder</p>
+</section>
+<p style="margin:0;font-size:0.9375rem;color:#5E5468;">Marca a quién llevas. Las familias confirman y firman el permiso desde su celular.</p>
+<ul aria-label="Jugadoras" style="list-style:none;margin:0;padding:0;background:#FFFFFF;border:1px solid #E4DEEA;border-radius:14px;overflow:hidden;">
+<template data-sc-for list="{{rows}}" as="r" hint-placeholder-count="14">
+<li style="display:flex;align-items:center;gap:10px;padding:6px 14px 6px 8px;border-top:1px solid #EEE9F2;">
+<input id="{{r.inId}}" type="checkbox" checked="{{r.on}}" onChange="{{r.toggle}}" style="flex:none;width:24px;height:24px;margin:10px;accent-color:#3B2259;cursor:pointer;">
+<label for="{{r.inId}}" style="flex:1;min-width:0;display:flex;flex-direction:column;cursor:pointer;min-height:44px;justify-content:center;"><span style="font-size:0.9375rem;font-weight:500;">{{r.name}}</span><span style="font-size:0.8125rem;color:#5E5468;">Camiseta {{r.num}}</span></label>
+<span style="{{r.chipStyle}}">{{r.chip}}</span>
+</li>
+</template>
+</ul>
+<template data-sc-if value="{{notSent}}" hint-placeholder-val="{{true}}">
+<button type="button" onClick="{{send}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;text-decoration:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Enviar convocatoria</button>
+<button type="button" onClick="{{send}}" style="display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:10px;border:1.5px solid #C9BED6;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;font-weight:500;cursor:pointer;text-decoration:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Recordar permisos sin firmar</button>
+</template>
+<template data-sc-if value="{{sent}}" hint-placeholder-val="{{false}}">
+<p role="status" style="margin:0;display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:10px;background:#DCF2E5;color:#135C34;font-size:0.9375rem;line-height:1.45;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 12l4 4 10-10"></path></svg>Listo: les llegó por WhatsApp a las familias de las {{n}} convocadas.</p>
+</template>
+<p style="margin:0;display:flex;align-items:flex-start;gap:8px;font-size:0.875rem;line-height:1.45;color:#5E5468;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg><span>Con cada respuesta de una familia te llega un aviso, y el admin ve la lista final.</span></p>
+</main>
+<nav aria-label="Menú del entrenador" style="display:flex;border-top:1px solid #E4DEEA;background:#FFFFFF;">
+<a href="Entrenador-Inicio.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M4 11l8-7 8 7"></path><path d="M6 10v10h12V10"></path></svg>Inicio</a>
+<a href="Entrenador-Asistencia.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4h6v3H9z"></path><path d="M9 14l2 2 4-4"></path></svg>Asistencia</a>
+<a href="Entrenador-Grupo.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"></path><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M21.5 20c0-2.9-1.8-5.3-4.3-6.2"></path></svg>Grupo</a>
+<a href="Entrenador-Avisar.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Avisar</a>
+<a href="Entrenador-Convocatoria.html" aria-current="page" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#3B2259;text-decoration:none;font-size:0.8125rem;font-weight:600;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg>Torneos</a>
+</nav></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#6B3FA0","options":["#6B3FA0","#8B3FD9","#7A4C9E"]},"$preview":{"width":390,"height":1450}}'>
+const PLAYERS = [
+  { id: 'vr', ini: 'VR', name: 'Valentina Rojas', num: '10', age: 15, att: 10, tot: 12, acu: 'Martha Rojas (mamá)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'ic', ini: 'IC', name: 'Isabella Contreras', num: '4', age: 16, att: 12, tot: 12, acu: 'Diana Contreras (mamá)', blood: 'A+', alerg: 'Alérgica al maní', faltas: 0 },
+  { id: 'jm', ini: 'JM', name: 'Juliana Mora', num: '9', age: 15, att: 11, tot: 12, acu: 'Carlos Mora (papá)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'ng', ini: 'NG', name: 'Natalia Gómez', num: '3', age: 16, att: 12, tot: 12, acu: 'Luz Gómez (mamá)', blood: 'B+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'ph', ini: 'PH', name: 'Paula Herrera', num: '11', age: 15, att: 9, tot: 12, acu: 'Sandra Herrera (mamá)', blood: 'O-', alerg: 'Ninguna', faltas: 0 },
+  { id: 'ml', ini: 'ML', name: 'Mariana Lizcano', num: '8', age: 16, att: 11, tot: 12, acu: 'Jorge Lizcano (papá)', blood: 'A+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'vc', ini: 'VC', name: 'Valeria Castro', num: '15', age: 14, att: 10, tot: 12, acu: 'Ruth Castro (abuela)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'ar', ini: 'AR', name: 'Antonia Rueda', num: '2', age: 15, att: 12, tot: 12, acu: 'Paola Rueda (mamá)', blood: 'AB+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'sf', ini: 'SF', name: 'Samantha Flórez', num: '17', age: 16, att: 11, tot: 12, acu: 'Mónica Flórez (mamá)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'lv', ini: 'LV', name: 'Luciana Vera', num: '6', age: 15, att: 10, tot: 12, acu: 'Natalia Vera (mamá)', blood: 'A-', alerg: 'Ninguna', faltas: 0 },
+  { id: 'eg', ini: 'EG', name: 'Emily Galvis', num: '13', age: 14, att: 7, tot: 12, acu: 'Fredy Galvis (papá)', blood: 'O+', alerg: 'Ninguna', faltas: 3 },
+  { id: 'ap', ini: 'AP', name: 'Ana Sofía Prada', num: '21', age: 15, att: 11, tot: 12, acu: 'Lina Prada (mamá)', blood: 'B+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'mi', ini: 'MI', name: 'María José Ibarra', num: '7', age: 16, att: 12, tot: 12, acu: 'Pedro Ibarra (papá)', blood: 'O+', alerg: 'Ninguna', faltas: 0 },
+  { id: 'sa', ini: 'SA', name: 'Salomé Ardila', num: '19', age: 14, att: 8, tot: 12, acu: 'Claudia Ardila (mamá)', blood: 'A+', alerg: 'Asma: usa inhalador', faltas: 3 },
+];
+
+const RESP = { vr: 'firmo', ic: 'firmo', jm: 'firmo', ng: 'falta', ph: 'firmo', ml: 'firmo', vc: 'nada', ar: 'firmo', sf: 'falta', lv: 'firmo', eg: 'no', ap: 'falta', mi: 'firmo', sa: 'no' };
+const CH = { firmo: ['#DCF2E5', '#135C34', 'Va · permiso firmado'], falta: ['#FCEFCF', '#6E4700', 'Va · falta el permiso'], nada: ['#ECE8F0', '#4A4253', 'Sin responder'], no: ['#FBE0DE', '#8F1D17', 'No va'] };
+
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { conv: PLAYERS.map((p) => p.id !== 'eg' && p.id !== 'sa'), sent: false }; }
+  renderVals() {
+    const accent = this.props.accent ?? '#6B3FA0';
+    const { conv, sent } = this.state;
+    const rows = PLAYERS.map((p, i) => {
+      const on = conv[i];
+      const r = RESP[p.id];
+      return { ...p, on, inId: 'cv-' + p.id,
+        toggle: () => { const n = conv.slice(); n[i] = !n[i]; this.setState({ conv: n, sent: false }); },
+        chip: on ? CH[r][2] : 'No convocada',
+        chipStyle: 'flex:none;padding:3px 8px;border-radius:6px;font-size:0.75rem;font-weight:500;background:' + (on ? CH[r][0] : '#F5F3F7') + ';color:' + (on ? CH[r][1] : '#5E5468') + ';' };
+    });
+    const sel = rows.filter((r) => r.on);
+    return {
+      accent, rows, sent, notSent: !sent,
+      n: sel.length, firmados: sel.filter((r) => RESP[r.id] === 'firmo').length,
+      faltan: sel.filter((r) => RESP[r.id] === 'falta').length, sinResp: sel.filter((r) => RESP[r.id] === 'nada').length,
+      send: () => this.setState({ sent: true }),
+    };
+  }
+}
+</script>
+</body>
+</html>

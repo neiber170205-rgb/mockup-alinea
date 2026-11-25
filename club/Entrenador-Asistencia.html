@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Entrenador: tomar asistencia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mk-width" content="390">
+<script src="../assets/js/mockup.js"></script>
+<script src="../assets/js/dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;1,800&amp;display=swap">
+<style>
+body{margin:0;background:#F5F3F7}
+a{color:#5B3A86}a:hover{color:#3B2259}
+a:focus-visible,button:focus-visible{outline:3px solid #6B3FA0;outline-offset:2px}
+</style>
+</helmet>
+<div style="width:390px;min-height:1500px;background:#F5F3F7;color:#17121D;font-family:Kanit, 'Trebuchet MS', Verdana, sans-serif;display:flex;flex-direction:column;">
+
+<header style="background:#0F0B14;color:#FFFFFF;padding:18px 20px 22px;display:flex;flex-direction:column;gap:16px;">
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+<span style="display:flex;align-items:center;gap:10px;">
+<span style="display:block;width:36px;height:36px;border-radius:50%;overflow:hidden;flex:none;"><img src="../assets/img/escudo-black-panthers.jpg" alt="" style="display:block;width:104%;height:104%;margin:-2%;"></span>
+<span style="font-weight:800;font-style:italic;text-transform:uppercase;font-size:1rem;">Black Panthers</span>
+</span>
+<span aria-label="Andrés, entrenador" style="width:36px;height:36px;border-radius:50%;background:#3B2259;color:#FFFFFF;font-size:0.8125rem;font-weight:600;display:flex;align-items:center;justify-content:center;">AN</span>
+</div>
+<div role="group" aria-label="Grupos de hoy" style="display:flex;gap:8px;">
+<button type="button" style="flex:1;min-height:44px;padding:0 8px;border-radius:8px;border:1.5px solid #4A3560;background:transparent;color:#CFC4DB;font-family:inherit;font-size:0.875rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"></path></svg>Infantil</button>
+<button type="button" aria-pressed="true" style="flex:1;min-height:44px;padding:0 8px;border-radius:8px;border:1.5px solid #FFFFFF;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:0.875rem;font-weight:600;cursor:pointer;">Juvenil</button>
+<button type="button" style="flex:1;min-height:44px;padding:0 8px;border-radius:8px;border:1.5px solid #4A3560;background:transparent;color:#FFFFFF;font-family:inherit;font-size:0.875rem;cursor:pointer;">Mayores</button>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px;">
+<h1 style="margin:0;font-weight:800;font-style:italic;text-transform:uppercase;font-size:2.25rem;line-height:1;">Juvenil</h1>
+<p style="margin:0;font-size:0.9375rem;color:#D9D0E2;">Hoy, 4:30 a 6:00 p. m. · Cancha principal</p>
+</div>
+<button type="button" style="display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;border:none;border-radius:10px;background:#FFFFFF;color:#0F0B14;font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"></path><rect x="8" y="8" width="3" height="3"></rect><rect x="13" y="8" width="3" height="3"></rect><rect x="8" y="13" width="3" height="3"></rect><path d="M13 13h3v3"></path></svg>Escanear carné</button>
+</header>
+
+<main style="flex:1;padding:18px 16px 24px;display:flex;flex-direction:column;gap:14px;">
+
+<section aria-label="Resumen de asistencia" style="background:#FFFFFF;border:1px solid #E4DEEA;border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;">
+<p style="margin:0;display:flex;align-items:baseline;gap:8px;"><span style="font-size:1.75rem;font-weight:600;line-height:1;font-variant-numeric:tabular-nums;">{{present}}</span><span style="font-size:1rem;color:#5E5468;">de {{total}} presentes</span></p>
+<div style="height:8px;border-radius:999px;background:#EDE7F3;overflow:hidden;"><div style="height:100%;width:{{presentPct}}%;background:#1F7A47;"></div></div>
+<p style="margin:0;font-size:0.875rem;color:#5E5468;font-variant-numeric:tabular-nums;">{{absent}} faltas · {{excused}} con excusa · {{pending}} sin marcar</p>
+</section>
+
+<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;">
+<div aria-hidden="true" style="display:flex;align-items:center;gap:12px;font-size:0.8125rem;color:#5E5468;">
+<span style="display:inline-flex;align-items:center;gap:4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1F7A47" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"></path></svg>Vino</span>
+<span style="display:inline-flex;align-items:center;gap:4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B42318" stroke-width="3" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>Faltó</span>
+<span style="display:inline-flex;align-items:center;gap:4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8A5A00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M9 13h6M9 17h4"></path></svg>Excusa</span>
+</div>
+<button type="button" onClick="{{markAll}}" style="min-height:44px;padding:0 4px;border:none;background:transparent;color:#5B3A86;font-family:inherit;font-size:0.9375rem;font-weight:500;text-decoration:underline;text-underline-offset:4px;cursor:pointer;">Todas vinieron</button>
+</div>
+
+<ul aria-label="Jugadoras del grupo" style="list-style:none;margin:0;padding:0;background:#FFFFFF;border:1px solid #E4DEEA;border-radius:12px;overflow:hidden;">
+<template data-sc-for list="{{rows}}" as="r" hint-placeholder-count="14">
+<li style="display:flex;align-items:center;gap:10px;padding:8px 10px 8px 14px;border-top:1px solid #EEE9F2;">
+<span style="flex:none;width:36px;height:36px;border-radius:50%;background:#EDE7F3;color:#3B2259;font-size:0.8125rem;font-weight:600;display:flex;align-items:center;justify-content:center;">{{r.ini}}</span>
+<span style="flex:1;min-width:0;display:flex;flex-direction:column;"><span style="font-size:0.9375rem;font-weight:500;line-height:1.25;">{{r.name}}</span><span style="font-size:0.8125rem;color:#5E5468;">Camiseta {{r.num}}</span></span>
+<span style="flex:none;display:flex;gap:4px;">
+<button type="button" aria-label="{{r.labelP}}" aria-pressed="{{r.pressedP}}" onClick="{{r.setP}}" style="width:44px;height:44px;padding:0;border-radius:8px;border:1.5px solid {{r.pBd}};background:{{r.pBg}};color:{{r.pFg}};cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"></path></svg></button>
+<button type="button" aria-label="{{r.labelF}}" aria-pressed="{{r.pressedF}}" onClick="{{r.setF}}" style="width:44px;height:44px;padding:0;border-radius:8px;border:1.5px solid {{r.fBd}};background:{{r.fBg}};color:{{r.fFg}};cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+<button type="button" aria-label="{{r.labelE}}" aria-pressed="{{r.pressedE}}" onClick="{{r.setE}}" style="width:44px;height:44px;padding:0;border-radius:8px;border:1.5px solid {{r.eBd}};background:{{r.eBg}};color:{{r.eFg}};cursor:pointer;display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M9 13h6M9 17h4"></path></svg></button>
+</span>
+</li>
+</template>
+</ul>
+
+<template data-sc-if value="{{saved}}" hint-placeholder-val="{{false}}">
+<p role="status" style="margin:0;display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:10px;background:#DCF2E5;color:#135C34;font-size:0.9375rem;line-height:1.45;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px;"><path d="M5 12l4 4 10-10"></path></svg>{{savedText}}</p>
+</template>
+
+<button type="button" onClick="{{save}}" style="min-height:52px;border:none;border-radius:10px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-size:1.0625rem;font-weight:600;cursor:pointer;">Guardar asistencia</button>
+<p style="margin:0;display:flex;align-items:flex-start;gap:8px;font-size:0.875rem;line-height:1.45;color:#5E5468;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:1px;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Al guardar, las familias de quienes faltaron sin excusa reciben un aviso por WhatsApp.</p>
+</main>
+
+<nav aria-label="Menú del entrenador" style="display:flex;border-top:1px solid #E4DEEA;background:#FFFFFF;">
+<a href="Entrenador-Inicio.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M4 11l8-7 8 7"></path><path d="M6 10v10h12V10"></path></svg>Inicio</a>
+<a href="Entrenador-Asistencia.html" aria-current="page" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#3B2259;text-decoration:none;font-size:0.8125rem;font-weight:600;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4h6v3H9z"></path><path d="M9 14l2 2 4-4"></path></svg>Asistencia</a>
+<a href="Entrenador-Grupo.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"></path><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M21.5 20c0-2.9-1.8-5.3-4.3-6.2"></path></svg>Grupo</a>
+<a href="Entrenador-Avisar.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Avisar</a>
+<a href="Entrenador-Convocatoria.html" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:64px;color:#5E5468;text-decoration:none;font-size:0.8125rem;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M8 21h8M12 17v4"></path><path d="M7 4h10v5a5 5 0 0 1-10 0z"></path></svg>Torneos</a>
+</nav>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#6B3FA0","options":["#6B3FA0","#8B3FD9","#7A4C9E"]},"$preview":{"width":390,"height":1500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const accent = this.props.accent ?? '#6B3FA0';
+    const players = [
+      ['VR', 'Valentina Rojas', '10'], ['IC', 'Isabella Contreras', '4'], ['JM', 'Juliana Mora', '9'],
+      ['NG', 'Natalia Gómez', '3'], ['PH', 'Paula Herrera', '11'], ['ML', 'Mariana Lizcano', '8'],
+      ['VC', 'Valeria Castro', '15'], ['AR', 'Antonia Rueda', '2'], ['SF', 'Samantha Flórez', '17'],
+      ['LV', 'Luciana Vera', '6'], ['EG', 'Emily Galvis', '13'], ['AP', 'Ana Sofía Prada', '21'],
+      ['MI', 'María José Ibarra', '7'], ['SA', 'Salomé Ardila', '19']
+    ];
+    const initial = ['p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'p', 'e', '', '', '', 'f'];
+    const marks = s.marks || initial;
+    const setMark = (i, v) => {
+      const next = marks.slice();
+      next[i] = next[i] === v ? '' : v;
+      this.setState({ marks: next, saved: false });
+    };
+    const off = ['#FFFFFF', '#5E5468', '#C9BED6'];
+    const on = { p: ['#1F7A47', '#FFFFFF', '#1F7A47'], f: ['#B42318', '#FFFFFF', '#B42318'], e: ['#8A5A00', '#FFFFFF', '#8A5A00'] };
+    const rows = players.map((p, i) => {
+      const m = marks[i];
+      const c = (k) => (m === k ? on[k] : off);
+      return {
+        ini: p[0], name: p[1], num: p[2],
+        pBg: c('p')[0], pFg: c('p')[1], pBd: c('p')[2],
+        fBg: c('f')[0], fFg: c('f')[1], fBd: c('f')[2],
+        eBg: c('e')[0], eFg: c('e')[1], eBd: c('e')[2],
+        pressedP: m === 'p' ? 'true' : 'false',
+        pressedF: m === 'f' ? 'true' : 'false',
+        pressedE: m === 'e' ? 'true' : 'false',
+        labelP: 'Vino: ' + p[1],
+        labelF: 'Faltó: ' + p[1],
+        labelE: 'Faltó con excusa: ' + p[1],
+        setP: () => setMark(i, 'p'),
+        setF: () => setMark(i, 'f'),
+        setE: () => setMark(i, 'e')
+      };
+    });
+    const count = (k) => marks.filter((m) => m === k).length;
+    const present = count('p');
+    const absent = count('f');
+    const savedText = absent > 0
+      ? 'Asistencia guardada. Se avisó por WhatsApp a ' + (absent === 1 ? 'la familia de la jugadora que faltó.' : 'las familias de las ' + absent + ' jugadoras que faltaron.')
+      : 'Asistencia guardada.';
+    return {
+      accent: accent,
+      rows: rows,
+      total: players.length,
+      present: present,
+      presentPct: Math.round((present / players.length) * 100),
+      absent: absent,
+      excused: count('e'),
+      pending: count(''),
+      markAll: () => this.setState({ marks: marks.map((m) => (m === '' ? 'p' : m)), saved: false }),
+      saved: !!s.saved,
+      savedText: savedText,
+      save: () => this.setState({ saved: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

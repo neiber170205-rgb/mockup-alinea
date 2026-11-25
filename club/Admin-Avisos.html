@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Panthers: avisos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mk-width" content="1440">
+<script src="../assets/js/mockup.js"></script>
+<script src="../assets/js/dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;display=swap">
+<style>
+:root{--ac:#6B3FA0;--ac-ink:#FFFFFF;--ac-soft:#F1EBF8;--ac-text:#4F2C80;--dk:#140F1C;--dk2:#241B31;--bg:#F6F5F8;--card:#FFFFFF;--ink:#17121D;--mut:#5E566A;--line:#E6E1EC;--ok-bg:#DCF2E5;--ok:#135C34;--warn-bg:#FCEFCF;--warn:#6E4700;--bad-bg:#FBE0DE;--bad:#8F1D17;--info-bg:#E3EAFA;--info:#1B3F99;--tf:#C2410C}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Geist,system-ui,sans-serif;font-size:15px;line-height:1.45}
+a{color:var(--ac-text)}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.side :focus-visible{outline-color:#FFFFFF}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+button{font-family:inherit}
+.app{display:grid;grid-template-columns:264px minmax(0,1fr);min-height:100vh;transition:grid-template-columns .2s ease}
+.app.compact{grid-template-columns:80px minmax(0,1fr)}
+.side{background:var(--dk);color:#FFFFFF;display:flex;flex-direction:column;gap:18px;padding:18px 14px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.esc{display:inline-block;border-radius:50%;overflow:hidden;background:#000;flex:none}.esc img{display:block;width:104%;height:104%;margin:-2%}
+.club{display:flex;align-items:center;gap:12px;padding:2px 4px;min-height:48px}
+.club .esc{width:46px;height:46px;border-radius:50%;overflow:hidden;flex:none;background:#000}
+.club .esc img{display:block;width:104%;height:104%;margin:-2%}
+.club b{display:block;font-size:16px;line-height:1.2}.club small{display:block;color:#CFC8D8;font-size:13px}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav .grp{margin:12px 12px 4px;font-size:12px;color:#A99FB6;font-weight:500}
+.nav a{position:relative;display:flex;align-items:center;gap:12px;min-height:44px;padding:0 12px;border-radius:10px;color:#E4E0EA;text-decoration:none;font-size:15px;transition:background .15s}
+.nav a:hover{background:var(--dk2)}
+.nav a[aria-current=page]{background:var(--ac);color:var(--ac-ink);font-weight:600}
+.badge{margin-left:auto;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:#F5C518;color:#140F1C;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.side-foot{margin-top:auto;display:flex;flex-direction:column;gap:12px;border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
+.me{display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.3}.me small{display:block;color:#CFC8D8;font-size:13px}
+.con{display:flex;align-items:center;gap:8px;color:#CFC8D8;font-size:13px}
+.ghost-d{display:flex;align-items:center;gap:10px;min-height:40px;padding:0 10px;border:0;border-radius:10px;background:none;color:#E4E0EA;font-size:14px;cursor:pointer}
+.ghost-d:hover{background:var(--dk2)}
+.compact .side .t,.compact .nav .grp,.compact .club .cn,.compact .me .t,.compact .con .t{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.compact .nav a,.compact .ghost-d,.compact .me,.compact .con{justify-content:center;padding:0}
+.compact .badge{position:absolute;top:4px;right:6px;min-width:18px;height:18px;font-size:11px}
+.compact .club{justify-content:center}
+.main{min-width:0;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:12px;padding:12px 32px;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}
+.icon-btn{position:relative;width:44px;height:44px;border-radius:12px;border:0;background:none;color:var(--ink);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.icon-btn:hover{background:#F1EEF4}
+.dot{position:absolute;top:9px;right:9px;width:9px;height:9px;border-radius:50%;background:#D92D20;border:2px solid #FFFFFF}
+.menu-btn,.top-club{display:none}
+.content{padding:28px 32px 48px;display:flex;flex-direction:column;gap:20px}
+.head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px}
+h1{margin:0;font-size:30px;line-height:1.15;font-weight:700;letter-spacing:-.02em}
+h2{margin:0;font-size:18px;line-height:1.3;font-weight:700}
+h3{margin:0;font-size:16px;font-weight:600}
+.sub{margin:6px 0 0;color:var(--mut);font-size:16px}
+.muted{color:var(--mut)}.small{font-size:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;min-width:0}
+.card-h{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.grid{display:grid;gap:16px}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.split{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(0,1fr);gap:16px;align-items:start}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:10px;font:600 15px Geist,sans-serif;cursor:pointer;border:1.5px solid transparent;text-decoration:none;white-space:nowrap;transition:background .15s,border-color .15s}
+.btn-p{background:var(--ac);color:var(--ac-ink)}.btn-p:hover{background:#5A3388}
+.btn-s{background:#FFFFFF;color:var(--ink);border-color:#CFC8D8}.btn-s:hover{background:#F6F5F8;border-color:#A99FB6}
+.btn-sm{min-height:38px;padding:0 12px;font-size:14px}
+.btn-link{min-height:40px;padding:0;border:0;background:none;color:var(--ac-text);font:600 15px Geist,sans-serif;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:26px;padding:0 10px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap}
+.chip::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;flex:none}
+.ok{background:var(--ok-bg);color:var(--ok)}.warn{background:var(--warn-bg);color:var(--warn)}.bad{background:var(--bad-bg);color:var(--bad)}.info{background:var(--info-bg);color:var(--info)}.none{background:#ECE8F0;color:#4A4253}.acc{background:var(--ac-soft);color:var(--ac-text)}
+.kpi{display:flex;flex-direction:column;gap:6px}
+.kpi .l{color:var(--mut);font-size:14px;display:flex;align-items:center;gap:8px}
+.kpi .n{font-size:30px;line-height:1.1;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:13px;color:var(--mut)}
+.bar{height:8px;border-radius:999px;background:#ECE8F0;overflow:hidden}.bar i{display:block;height:100%;background:var(--ac);border-radius:999px}
+.av{width:40px;height:40px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex:none}
+.c-inf{background:#E3F2EC;color:#0F5B43}.c-juv{background:var(--ac-soft);color:var(--ac-text)}.c-may{background:#FDEBDC;color:#8A3A06}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.fchip{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid #CFC8D8;background:#FFFFFF;font:500 14px Geist,sans-serif;cursor:pointer;color:var(--ink)}
+.fchip .k{color:var(--mut);font-variant-numeric:tabular-nums}
+.fchip[aria-pressed=true]{background:var(--dk);border-color:var(--dk);color:#FFFFFF}.fchip[aria-pressed=true] .k{color:#CFC8D8}
+.tbl-wrap{background:#FFFFFF;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.tbl{display:flex;flex-direction:column}
+.tr{display:grid;grid-template-columns:var(--cols);align-items:center;column-gap:16px;padding:12px 16px;border-bottom:1px solid #EFEBF3;transition:background .12s}
+.tr:last-child{border-bottom:0}
+.tbl .tr:not(.th):hover{background:#FBF9FD}
+.th{padding:11px 16px;background:#FBFAFC;border-bottom:1px solid var(--line);font-size:13px;font-weight:600;color:var(--mut)}
+.tr.sel{background:var(--ac-soft)}
+.td{min-width:0}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.who{display:flex;align-items:center;gap:12px;min-width:0}.who b{display:block;font-weight:600;line-height:1.25}.who small{display:block;color:var(--mut);font-size:13px}
+.tfoot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-top:1px solid var(--line);font-size:14px;color:var(--mut);background:#FBFAFC}
+.pbar{display:flex;align-items:center;gap:10px;min-width:120px}.pbar .bar{flex:1}
+.field{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600;min-width:0}
+.input{width:100%;min-height:44px;padding:0 14px;border:1.5px solid #8C8398;border-radius:10px;font:400 16px Geist,sans-serif;color:var(--ink);background:#FFFFFF}
+textarea.input{padding:12px 14px;min-height:120px;line-height:1.5;resize:vertical}
+.help{font-size:13px;font-weight:400;color:var(--mut)}
+.cb{position:relative;min-width:0}
+.cb-field{display:flex;align-items:center;gap:8px;min-height:46px;padding:0 6px 0 14px;border:1.5px solid #8C8398;border-radius:12px;background:#FFFFFF;color:var(--mut)}
+.cb-field:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px var(--ac-soft)}
+.cb-field input{flex:1;min-width:0;min-height:42px;border:0;outline:0;background:none;font:400 16px Geist,sans-serif;color:var(--ink)}
+.cb-list{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:40;list-style:none;margin:0;padding:6px;background:#FFFFFF;border:1px solid var(--line);border-radius:14px;box-shadow:0 16px 40px rgba(20,15,28,.16);max-height:360px;overflow:auto}
+.cb-opt{display:flex;align-items:center;gap:12px;min-height:56px;padding:6px 10px;border-radius:10px;cursor:pointer}
+.cb-opt:hover,.cb-opt[aria-selected=true]{background:var(--ac-soft)}
+.cb-opt .grow{flex:1;min-width:0;line-height:1.3}.cb-opt small{display:block;color:var(--mut);font-size:13px}
+.cb-head{padding:6px 10px 4px;font-size:12px;color:var(--mut);font-weight:500}
+.cb-empty{padding:14px 12px;font-size:14px;color:var(--mut);line-height:1.45}
+.picked{display:flex;flex-wrap:wrap;gap:6px}
+.pick{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:0 6px 0 12px;border-radius:999px;background:var(--ac-soft);color:var(--ac-text);font-size:14px;font-weight:600}
+.pick button{width:28px;height:28px;border:0;border-radius:50%;background:none;color:inherit;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.seg{display:inline-flex;max-width:100%;overflow-x:auto;gap:4px;padding:4px;border-radius:12px;background:#ECE8F0}
+.seg button{min-height:38px;padding:0 14px;border:0;border-radius:9px;background:none;font:600 14px Geist,sans-serif;color:var(--mut);cursor:pointer}
+.seg button[aria-pressed=true]{background:#FFFFFF;color:var(--ink);box-shadow:0 1px 2px rgba(20,15,28,.12)}
+.list{list-style:none;margin:0;padding:0}
+.li{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid #EFEBF3}
+.li:first-child{border-top:0}
+.ico{width:40px;height:40px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.wa{display:inline-flex;align-items:center;gap:6px}
+.bnav{display:none}
+.scrim{display:none}
+.sw{position:relative;width:48px;height:28px;border-radius:999px;border:0;background:#8C8398;cursor:pointer;flex:none}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#FFFFFF;transition:left .15s}
+.sw[aria-checked=true]{background:var(--ac)}.sw[aria-checked=true]::after{left:23px}
+@media (max-width:1180px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.split{grid-template-columns:1fr}.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){
+.app,.app.compact{grid-template-columns:1fr}
+.side{position:fixed;left:0;top:0;bottom:0;width:min(300px,86vw);height:auto;z-index:60;transform:translateX(-105%);transition:transform .25s ease}
+.app.open .side{transform:none}
+.app.open .scrim{display:block;position:fixed;inset:0;background:rgba(20,15,28,.55);z-index:50;border:0}
+.compact .side .t,.compact .nav .grp,.compact .club .cn,.compact .me .t,.compact .con .t{position:static;width:auto;height:auto;clip-path:none}
+.compact .nav a{justify-content:flex-start;padding:0 12px}
+.collapse{display:none !important}
+.top{padding:8px 12px}.menu-btn,.top-club{display:inline-flex}.top .cb{display:none}.top .grow{flex:1}
+.top-club{align-items:center;gap:10px;font-weight:700;font-size:16px}.top-club .esc{width:34px;height:34px;border-radius:50%;overflow:hidden;background:#000}.top-club .esc img{display:block;width:104%;height:104%;margin:-2%}
+.content{padding:20px 16px 104px;gap:16px}
+h1{font-size:25px}.sub{font-size:15px}
+.g4,.g3{grid-template-columns:repeat(2,minmax(0,1fr))}.g2{grid-template-columns:1fr}
+.card{padding:16px;border-radius:14px}.kpi .n{font-size:24px}
+.head .row{width:100%}.head .row .btn{flex:1}
+.bnav{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:35;background:#FFFFFF;border-top:1px solid var(--line);padding:4px 6px calc(4px + env(safe-area-inset-bottom))}
+.bnav a,.bnav button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:56px;border:0;background:none;color:var(--mut);font:500 12px Geist,sans-serif;text-decoration:none;cursor:pointer}
+.bnav [aria-current=page]{color:var(--ac-text);font-weight:700}
+}
+@media (max-width:720px){
+.th{display:none}
+.tr{grid-template-columns:1fr 1fr;gap:12px 14px;padding:16px}
+.td[data-label]::before{content:attr(data-label);display:block;font-size:12px;color:var(--mut);font-weight:500;margin-bottom:3px}
+.td.lead,.td.act,.td.full{grid-column:1/-1}
+.td.act{display:flex;gap:8px}.td.act .btn{flex:1}
+.num{text-align:left}
+.one-m{grid-template-columns:1fr !important}
+.indent-m{padding-left:0 !important}
+.one-m>.seg,.card>.seg{display:flex}.one-m>.seg button{flex:1}
+.hide-m{display:none !important}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+</style>
+</helmet>
+<div class="{{shellCls}}">
+<aside class="side" id="menu-club" aria-label="Menú del club">
+<div class="club"><span class="esc" style="width:46px;height:46px;"><img src="../assets/img/escudo-black-panthers.jpg" alt=""></span><span class="cn"><b>Black Panthers</b><small>Voleibol · Cúcuta</small></span></div>
+<nav class="nav" aria-label="Secciones"><p class="grp">Día a día</p><a href="Admin-Inicio.html" title="Inicio"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg><span class="t">Inicio</span></a><a href="Admin-Jugadoras.html" title="Jugadoras"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"/><path d="M18 13.8c2.1.8 3.5 2.9 3.5 5.2"/></svg><span class="t">Jugadoras</span></a><a href="Admin-Asistencia.html" title="Asistencia"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12l3 3 5-6"/></svg><span class="t">Asistencia</span></a><a href="Admin-Pagos.html" title="Pagos"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/><path d="M16 15h2"/></svg><span class="t">Pagos</span><span class="badge" aria-label="3 pendientes">3</span></a><a href="Admin-Avisos.html" aria-current="page" title="Avisos"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M3 10v4a1 1 0 0 0 1 1h2l5 4V5L6 9H4a1 1 0 0 0-1 1z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg><span class="t">Avisos</span></a><p class="grp">Club</p><a href="Admin-Inscripciones.html" title="Inscripciones"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v3h6V3"/><path d="M9 11h6M9 15h4"/></svg><span class="t">Inscripciones</span><span class="badge" aria-label="5 pendientes">5</span></a><a href="Admin-Grupos.html" title="Grupos y horarios"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg><span class="t">Grupos y horarios</span></a><a href="Admin-Torneos.html" title="Torneos"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H4.5a3 3 0 0 0 3.5 4M16 6h3.5a3 3 0 0 1-3.5 4"/><path d="M12 13v4M8.5 20h7M10 17h4"/></svg><span class="t">Torneos</span></a><a href="Admin-Galeria.html" title="Galería"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-9 9"/></svg><span class="t">Galería</span></a><p class="grp">Gestión</p><a href="Admin-Reportes.html" title="Reportes"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M4 20V10M10 20V4M16 20v-7M21 20H3"/></svg><span class="t">Reportes</span></a><a href="Admin-Configuracion.html" title="Configuración"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M4.2 6.2l2.1 2.1M17.7 15.7l2.1 2.1M2.5 12h3M18.5 12h3M4.2 17.8l2.1-2.1M17.7 8.3l2.1-2.1"/></svg><span class="t">Configuración</span></a></nav>
+<div class="side-foot">
+<button type="button" class="ghost-d collapse" onClick="{{toggleCompact}}" aria-expanded="{{wide}}" aria-controls="menu-club" title="{{compactLabel}}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M9 4v16"/></svg><span class="t">{{compactLabel}}</span></button>
+<div class="me"><span class="av" style="background:#F5C518;color:#140F1C;width:36px;height:36px;font-size:13px;">LR</span><span class="t">Laura Ríos<small>Administradora</small></span></div>
+<div class="con"><span class="t">con</span><svg viewBox="5.5 7.5 239.28 50" width="68" height="14.2" role="img" aria-label="Alinea" style="flex:none;display:block;"><g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="7"><path d="M9 54L24 11H40L55 54" stroke="#FFFFFF"></path><path d="M10 35H54" stroke="#F5C518"></path></g><path d="M87.2 50.25Q84.88 50.25 82.91 49.89Q80.93 49.53 79.43 48.68Q77.94 47.84 77.09 46.39Q76.25 44.94 76.25 42.73Q76.25 39.69 77.94 37.93Q79.63 36.17 82.69 35.39Q85.75 34.62 89.88 34.41Q94 34.19 98.87 34.19V33.27Q98.87 31.68 98.1 30.76Q97.33 29.85 95.76 29.44Q94.19 29.03 91.68 29.03Q89.8 29.03 88.24 29.29Q86.67 29.56 85.75 30.11Q84.84 30.67 84.84 31.54V32.02H77.26Q77.21 31.82 77.19 31.66Q77.17 31.49 77.17 31.25Q77.17 28.98 78.85 27.27Q80.54 25.55 83.9 24.61Q87.25 23.67 92.22 23.67Q96.85 23.67 100.01 24.49Q103.16 25.31 104.8 27.19Q106.44 29.08 106.44 32.21V42.87Q106.44 43.74 106.81 44.24Q107.17 44.75 108.04 44.75H110.54V49.38Q109.97 49.62 108.61 49.94Q107.26 50.25 105.62 50.25Q103.41 50.25 102.13 49.74Q100.85 49.24 100.27 48.34Q99.69 47.45 99.45 46.39H99.06Q97.71 47.6 95.86 48.47Q94 49.33 91.83 49.79Q89.66 50.25 87.2 50.25ZM89.18 44.9Q90.53 44.9 92.19 44.58Q93.86 44.27 95.4 43.67Q96.94 43.06 97.91 42.15Q98.87 41.23 98.87 39.93V38.58Q93.71 38.58 90.38 38.96Q87.05 39.35 85.41 40.17Q83.77 40.99 83.77 42.48Q83.77 43.5 84.57 44Q85.37 44.51 86.62 44.7Q87.87 44.9 89.18 44.9Z M113.39 49.67V14.75H120.91V49.67Z M127.09 20.35V14.75H134.61V20.35ZM127.09 49.67V24.25H134.61V49.67Z M140.79 49.67V24.25H146.86L147.39 28.54H147.83Q149.23 26.71 150.99 25.65Q152.75 24.59 154.75 24.13Q156.75 23.67 158.68 23.67Q162.3 23.67 164.73 24.81Q167.17 25.94 168.38 28.26Q169.58 30.57 169.58 34.09V49.67H162.06V35.3Q162.06 33.8 161.62 32.72Q161.19 31.63 160.42 30.96Q159.65 30.28 158.51 29.97Q157.38 29.65 155.98 29.65Q153.95 29.65 152.22 30.5Q150.48 31.34 149.4 32.81Q148.31 34.28 148.31 36.26V49.67Z M190.95 50.25Q185.89 50.25 182.22 48.83Q178.55 47.4 176.55 44.46Q174.55 41.52 174.55 36.99Q174.55 32.55 176.5 29.58Q178.46 26.62 182.1 25.14Q185.74 23.67 190.66 23.67Q195.82 23.67 199.39 25.12Q202.96 26.57 204.79 29.41Q206.63 32.26 206.63 36.46V38.67H182.46Q182.61 40.89 183.67 42.27Q184.73 43.64 186.63 44.27Q188.54 44.9 191.09 44.9Q192.25 44.9 193.53 44.63Q194.81 44.37 195.94 43.88Q197.08 43.4 197.85 42.65Q198.62 41.91 198.72 40.84H206.43Q206.43 42.87 205.37 44.61Q204.31 46.34 202.28 47.6Q200.26 48.85 197.39 49.55Q194.52 50.25 190.95 50.25ZM182.51 34.09H198.57Q198.57 32.84 197.99 31.9Q197.41 30.96 196.33 30.31Q195.24 29.65 193.84 29.34Q192.44 29.03 190.81 29.03Q188.44 29.03 186.63 29.63Q184.82 30.23 183.79 31.37Q182.75 32.5 182.51 34.09Z M221.43 50.25Q219.12 50.25 217.14 49.89Q215.16 49.53 213.67 48.68Q212.17 47.84 211.33 46.39Q210.48 44.94 210.48 42.73Q210.48 39.69 212.17 37.93Q213.86 36.17 216.92 35.39Q219.99 34.62 224.11 34.41Q228.23 34.19 233.11 34.19V33.27Q233.11 31.68 232.33 30.76Q231.56 29.85 229.99 29.44Q228.43 29.03 225.92 29.03Q224.04 29.03 222.47 29.29Q220.9 29.56 219.99 30.11Q219.07 30.67 219.07 31.54V32.02H211.5Q211.45 31.82 211.42 31.66Q211.4 31.49 211.4 31.25Q211.4 28.98 213.09 27.27Q214.78 25.55 218.13 24.61Q221.48 23.67 226.45 23.67Q231.08 23.67 234.24 24.49Q237.4 25.31 239.04 27.19Q240.68 29.08 240.68 32.21V42.87Q240.68 43.74 241.04 44.24Q241.4 44.75 242.27 44.75H244.78V49.38Q244.2 49.62 242.85 49.94Q241.5 50.25 239.86 50.25Q237.64 50.25 236.36 49.74Q235.08 49.24 234.5 48.34Q233.93 47.45 233.68 46.39H233.3Q231.95 47.6 230.09 48.47Q228.23 49.33 226.06 49.79Q223.89 50.25 221.43 50.25ZM223.41 44.9Q224.76 44.9 226.43 44.58Q228.09 44.27 229.63 43.67Q231.18 43.06 232.14 42.15Q233.11 41.23 233.11 39.93V38.58Q227.94 38.58 224.62 38.96Q221.29 39.35 219.65 40.17Q218.01 40.99 218.01 42.48Q218.01 43.5 218.8 44Q219.6 44.51 220.85 44.7Q222.11 44.9 223.41 44.9Z" fill="#FFFFFF"></path></svg></div>
+</div>
+</aside>
+<button type="button" class="scrim" aria-label="Cerrar menú" onClick="{{closeMenu}}"></button>
+<div class="main">
+<header class="top">
+<button type="button" class="icon-btn menu-btn" aria-label="Abrir menú" aria-expanded="{{menuOpen}}" aria-controls="menu-club" onClick="{{toggleMenu}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<span class="top-club"><span class="esc" style="width:34px;height:34px;"><img src="../assets/img/escudo-black-panthers.jpg" alt=""></span><span>Black Panthers</span></span>
+<div class="grow" style="flex:1;max-width:560px;"><div class="cb"><label class="sr" for="cb-g">Buscar en el club</label>
+<div class="cb-field"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="cb-g" type="text" role="combobox" aria-expanded="{{g.open}}" aria-controls="lb-g" aria-autocomplete="list" autocomplete="off" value="{{g.q}}" onChange="{{g.setQ}}" onClick="{{g.openIt}}" placeholder="Busca jugadora, acudiente o número de camiseta"><button type="button" class="icon-btn" style="width:38px;height:38px;" aria-label="Ver opciones" onClick="{{g.toggle}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M6 9l6 6 6-6"/></svg></button></div>
+<template data-sc-if value="{{g.open}}" hint-placeholder-val="{{false}}"><ul class="cb-list" id="lb-g" role="listbox" aria-label="Buscar en el club">
+<li class="cb-head" role="presentation">{{g.head}}</li>
+<template data-sc-for list="{{g.opts}}" as="o" hint-placeholder-count="5"><li class="cb-opt" role="option" aria-selected="{{o.on}}" tabindex="-1" onClick="{{o.pick}}"><span class="{{o.avc}}" style="width:38px;height:38px;font-size:13px;">{{o.ini}}</span><span class="grow"><b style="font-weight:600;">{{o.name}}</b><small>{{o.sub}}</small></span><span class="{{o.chipc}}">{{o.chip}}</span></li></template>
+<template data-sc-if value="{{g.none}}" hint-placeholder-val="{{false}}"><li class="cb-empty" role="presentation">No hay nadie con «{{g.q}}». Prueba con el apellido, el nombre del acudiente o el número de camiseta.</li></template>
+</ul></template></div></div>
+<span style="flex:1;" class="hide-m"></span>
+<button type="button" class="icon-btn" aria-label="Notificaciones, 4 nuevas"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span class="dot"></span></button>
+</header>
+<main class="content" id="contenido">
+<div class="head"><div><h1>Avisos</h1><p class="sub">Le llegan por WhatsApp a los acudientes y quedan en su portal</p></div><div class="row"><button type="button" class="btn btn-s" ><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></svg>Plantillas</button></div></div>
+<div class="split">
+<section class="card" aria-labelledby="t-nuevo" style="display:flex;flex-direction:column;gap:16px;">
+<h2 id="t-nuevo">Nuevo aviso</h2>
+<div class="cb"><label class="field" for="cb-to">Para</label>
+<div class="cb-field"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="cb-to" type="text" role="combobox" aria-expanded="{{to.open}}" aria-controls="lb-to" aria-autocomplete="list" autocomplete="off" value="{{to.q}}" onChange="{{to.setQ}}" onClick="{{to.openIt}}" placeholder="Busca un grupo, una categoría o una jugadora"><button type="button" class="icon-btn" style="width:38px;height:38px;" aria-label="Ver opciones" onClick="{{to.toggle}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M6 9l6 6 6-6"/></svg></button></div>
+<template data-sc-if value="{{to.open}}" hint-placeholder-val="{{false}}"><ul class="cb-list" id="lb-to" role="listbox" aria-label="Para">
+<li class="cb-head" role="presentation">{{to.head}}</li>
+<template data-sc-for list="{{to.opts}}" as="o" hint-placeholder-count="5"><li class="cb-opt" role="option" aria-selected="{{o.on}}" tabindex="-1" onClick="{{o.pick}}"><span class="{{o.avc}}" style="width:38px;height:38px;font-size:13px;">{{o.ini}}</span><span class="grow"><b style="font-weight:600;">{{o.name}}</b><small>{{o.sub}}</small></span><span class="{{o.chipc}}">{{o.chip}}</span></li></template>
+<template data-sc-if value="{{to.none}}" hint-placeholder-val="{{false}}"><li class="cb-empty" role="presentation">No hay nadie con «{{to.q}}». Prueba con el apellido, el nombre del acudiente o el número de camiseta.</li></template>
+</ul></template><template data-sc-if value="{{to.hasPicked}}" hint-placeholder-val="{{true}}"><div class="picked" style="margin-top:8px;"><template data-sc-for list="{{to.picked}}" as="p" hint-placeholder-count="2"><span class="pick">{{p.name}}<button type="button" aria-label="Quitar {{p.name}}" onClick="{{p.remove}}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span></template></div></template></div>
+<p class="small muted" style="margin:-8px 0 0;">Le llega a <b style="color:var(--ink);">{{alcance}}</b>.</p>
+<div class="field">Por dónde<div class="row"><label class="row" style="gap:8px;font-weight:400;font-size:15px;"><input type="checkbox" checked style="width:20px;height:20px;margin:0;"><span class="wa"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"/></svg>WhatsApp</span></label><label class="row" style="gap:8px;font-weight:400;font-size:15px;"><input type="checkbox" checked style="width:20px;height:20px;margin:0;">Portal del acudiente</label></div></div>
+<label class="field">Mensaje<textarea class="input" onChange="{{setMsg}}">{{msg}}</textarea><span class="help">Usa {nombre} y se cambia por el nombre de cada jugadora.</span></label>
+<div class="row"><button type="button" class="btn btn-p" onClick="{{enviar}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M9 6l6 6-6 6"/></svg>Enviar ahora</button><button type="button" class="btn btn-s"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Programar</button></div>
+<template data-sc-if value="{{enviado}}" hint-placeholder-val="{{false}}"><p class="chip ok" role="status" style="margin:0;align-self:flex-start;">Enviado a {{alcance}}</p></template>
+</section>
+<aside class="card" aria-label="Vista previa" style="display:flex;flex-direction:column;gap:12px;">
+<h2>Así le llega</h2>
+<div style="background:#ECE5DD;border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:10px;">
+<div class="row" style="flex-wrap:nowrap;gap:10px;background:#FFFFFF;border-radius:12px;padding:8px 10px;"><span class="esc" style="width:36px;height:36px;"><img src="../assets/img/escudo-black-panthers.jpg" alt=""></span><span style="line-height:1.25;"><b style="font-size:14px;">Black Panthers</b><br><span class="small muted wa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"/></svg>WhatsApp del club</span></span></div>
+<div style="align-self:flex-start;max-width:92%;background:#FFFFFF;border-radius:4px 14px 14px 14px;padding:10px 12px;font-size:14px;line-height:1.45;box-shadow:0 1px 1px rgba(0,0,0,.08);">{{preview}}<div class="small muted" style="text-align:right;margin-top:4px;">9:42 a. m.</div></div>
+</div>
+<p class="small muted" style="margin:0;">Sale del número de WhatsApp del club. Las respuestas le llegan al club, no a Alinea.</p>
+</aside>
+</div>
+<section style="display:flex;flex-direction:column;gap:12px;"><h2>Enviados</h2><div class="tbl-wrap"><div class="tbl" role="table" aria-label="Avisos enviados" style="--cols:minmax(0,2.4fr) minmax(0,1.4fr) minmax(0,1fr) minmax(0,1.4fr);"><div class="tr th" role="row"><span class="td " role="columnheader">Aviso</span><span class="td " role="columnheader">Para</span><span class="td " role="columnheader">Entregados</span><span class="td " role="columnheader">Leídos</span></div><div class="tr" role="row"><span class="td lead" role="cell"><b style="font-weight:600;">Cambio de cancha del jueves</b><br><span class="small muted">Hoy 9:10 a. m.</span></span><span class="td " role="cell" data-label="Para">Juvenil</span><span class="td " role="cell" data-label="Entregados">34 de 34</span><span class="td " role="cell" data-label="Leídos"><span class="pbar"><span class="bar"><i style="width:88%;"></i></span><b class="small">88 %</b></span></span></div><div class="tr" role="row"><span class="td lead" role="cell"><b style="font-weight:600;">Recordatorio de mensualidad</b><br><span class="small muted">Ayer</span></span><span class="td " role="cell" data-label="Para">11 acudientes</span><span class="td " role="cell" data-label="Entregados">11 de 11</span><span class="td " role="cell" data-label="Leídos"><span class="pbar"><span class="bar"><i style="width:73%;"></i></span><b class="small">73 %</b></span></span></div><div class="tr" role="row"><span class="td lead" role="cell"><b style="font-weight:600;">Convocatoria Copa Frontera</b><br><span class="small muted">20 nov</span></span><span class="td " role="cell" data-label="Para">Convocadas Sub-16</span><span class="td " role="cell" data-label="Entregados">14 de 14</span><span class="td " role="cell" data-label="Leídos"><span class="pbar"><span class="bar"><i style="width:100%;"></i></span><b class="small">100 %</b></span></span></div><div class="tr" role="row"><span class="td lead" role="cell"><b style="font-weight:600;">Uniforme blanco el sábado</b><br><span class="small muted">18 nov</span></span><span class="td " role="cell" data-label="Para">Todo el club</span><span class="td " role="cell" data-label="Entregados">90 de 92</span><span class="td " role="cell" data-label="Leídos"><span class="pbar"><span class="bar"><i style="width:81%;"></i></span><b class="small">81 %</b></span></span></div></div></div></section>
+</main>
+</div>
+<nav class="bnav" aria-label="Accesos rápidos"><a href="Admin-Inicio.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Inicio</a><a href="Admin-Jugadoras.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6.5 6.5-6.5s6.5 2.9 6.5 6.5"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"/><path d="M18 13.8c2.1.8 3.5 2.9 3.5 5.2"/></svg>Jugadoras</a><a href="Admin-Pagos.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M2.5 10h19"/><path d="M16 15h2"/></svg>Pagos</a><a href="Admin-Avisos.html" aria-current="page"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M3 10v4a1 1 0 0 0 1 1h2l5 4V5L6 9H4a1 1 0 0 0-1 1z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>Avisos</a><button type="button" onClick="{{toggleMenu}}" aria-label="Más secciones"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Más</button></nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1160}}'>
+const CAT = { Infantil: 'av c-inf', Juvenil: 'av c-juv', Mayores: 'av c-may' };
+const PAY = { 'Al día': 'chip ok', 'Pendiente': 'chip warn', 'En mora': 'chip bad', 'Becada': 'chip info' };
+const PLAYERS = [
+  { id: 'vr', name: 'Valentina Rojas', num: 10, cat: 'Juvenil', guardian: 'Martha Rojas', phone: '310 555 0142', pay: 'Pendiente', att: 83, pos: 'Armadora' },
+  { id: 'sd', name: 'Sofía Duarte', num: 7, cat: 'Juvenil', guardian: 'Jorge Duarte', phone: '315 555 0198', pay: 'Al día', att: 96, pos: 'Opuesta' },
+  { id: 'mp', name: 'Mariana Peña', num: 4, cat: 'Juvenil', guardian: 'Diana Peña', phone: '300 555 0111', pay: 'En mora', att: 71, pos: 'Central' },
+  { id: 'jm', name: 'Juliana Mora', num: 12, cat: 'Mayores', guardian: 'Ella misma', phone: '318 555 0170', pay: 'Al día', att: 90, pos: 'Líbero' },
+  { id: 'sv', name: 'Sara Villamizar', num: 3, cat: 'Infantil', guardian: 'Andrea Villamizar', phone: '311 555 0123', pay: 'Al día', att: 100, pos: 'Punta' },
+  { id: 'al', name: 'Ana Lucía Rojas', num: 8, cat: 'Infantil', guardian: 'Martha Rojas', phone: '310 555 0142', pay: 'Al día', att: 92, pos: 'Punta' },
+  { id: 'dc', name: 'Daniela Contreras', num: 15, cat: 'Mayores', guardian: 'Ella misma', phone: '320 555 0190', pay: 'Pendiente', att: 78, pos: 'Central' },
+  { id: 'ic', name: 'Isabella Castro', num: 11, cat: 'Infantil', guardian: 'Paola Castro', phone: '312 555 0164', pay: 'Becada', att: 88, pos: 'Armadora' },
+  { id: 'lg', name: 'Laura Gélvez', num: 9, cat: 'Juvenil', guardian: 'Nelson Gélvez', phone: '316 555 0137', pay: 'En mora', att: 64, pos: 'Opuesta' },
+  { id: 'gp', name: 'Gabriela Pabón', num: 5, cat: 'Mayores', guardian: 'Ella misma', phone: '301 555 0155', pay: 'Al día', att: 94, pos: 'Punta' },
+];
+const ini = (n) => n.split(' ').filter(Boolean).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+const norm = (t) => String(t).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+const asOpt = (p) => ({ ...p, ini: ini(p.name), avc: CAT[p.cat] || 'av c-juv', sub: p.cat + ' · Camiseta ' + p.num + ' · ' + p.guardian, chip: p.pay, chipc: PAY[p.pay] || 'chip none' });
+function combo(self, key, items, opts) {
+  opts = opts || {};
+  const s = self.state; const q = s['q_' + key] || ''; const open = !!s['o_' + key];
+  const multi = !!opts.multi; const picked = s['p_' + key] || (opts.initial || []);
+  const sel = s['s_' + key] !== undefined ? s['s_' + key] : (opts.selected || null);
+  const res = items.filter((i) => norm(i.name + ' ' + (i.sub || '') + ' ' + (i.num || '')).includes(norm(q.trim()))).slice(0, opts.max || 6);
+  const set = (o) => self.setState(o);
+  return {
+    q, open, setQ: (e) => set({ ['q_' + key]: e.target.value, ['o_' + key]: true }),
+    openIt: () => set({ ['o_' + key]: true }), toggle: () => set({ ['o_' + key]: !open }),
+    head: q.trim() ? res.length + (res.length === 1 ? ' resultado' : ' resultados') : (opts.head || 'Sugerencias'),
+    opts: res.map((i) => ({ ...i, on: multi ? picked.includes(i.id) : sel === i.id,
+      pick: () => multi ? set({ ['p_' + key]: picked.includes(i.id) ? picked.filter((x) => x !== i.id) : picked.concat([i.id]), ['q_' + key]: '' })
+                        : set({ ['s_' + key]: i.id, ['o_' + key]: false, ['q_' + key]: opts.keepText ? i.name : '' }) })),
+    none: res.length === 0,
+    sel: items.find((i) => i.id === sel) || null,
+    picked: items.filter((i) => picked.includes(i.id)).map((i) => ({ ...i, remove: () => set({ ['p_' + key]: picked.filter((x) => x !== i.id) }) })),
+    hasPicked: picked.length > 0, count: picked.length,
+  };
+}
+function shell(self) {
+  const s = self.state; const compact = !!s.compact; const menu = !!s.menu;
+  return {
+    shellCls: 'app' + (compact ? ' compact' : '') + (menu ? ' open' : ''),
+    toggleCompact: () => self.setState({ compact: !compact }), wide: !compact,
+    compactLabel: compact ? 'Expandir menú' : 'Contraer menú',
+    toggleMenu: () => self.setState({ menu: !menu }), closeMenu: () => self.setState({ menu: false }), menuOpen: menu,
+    g: combo(self, 'g', PLAYERS.map(asOpt), { head: 'Jugadoras recientes', max: 5 }),
+  };
+}
+
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = this.state || {}; }
+  renderVals() {
+    const self = this;
+    const base = shell(this);
+    const st = this.state;
+    const DEST = [
+      { id: 'todo', name: 'Todo el club', sub: '92 jugadoras · 88 acudientes', ini: 'BP', cat: 'Juvenil', n: 88, chip: 'Club', chipc: 'chip acc' },
+      { id: 'inf', name: 'Infantil', sub: 'Categoría · 24 jugadoras', ini: 'IN', cat: 'Infantil', n: 24, chip: 'Grupo', chipc: 'chip none' },
+      { id: 'juv', name: 'Juvenil', sub: 'Categoría · 34 jugadoras', ini: 'JU', cat: 'Juvenil', n: 34, chip: 'Grupo', chipc: 'chip none' },
+      { id: 'may', name: 'Mayores', sub: 'Categoría · 28 jugadoras', ini: 'MA', cat: 'Mayores', n: 28, chip: 'Grupo', chipc: 'chip none' },
+      { id: 'mora', name: 'Acudientes en mora', sub: 'Lista automática · 9 personas', ini: '$', cat: 'Mayores', n: 9, chip: 'Lista', chipc: 'chip bad' },
+      { id: 'conv', name: 'Convocadas Copa Frontera', sub: 'Lista del torneo · 14 jugadoras', ini: 'CF', cat: 'Juvenil', n: 14, chip: 'Torneo', chipc: 'chip acc' },
+    ].map((d) => ({ ...d, avc: CAT[d.cat] }));
+    const all = DEST.concat(PLAYERS.map((p) => ({ ...asOpt(p), n: 1, chip: 'Jugadora', chipc: 'chip none' })));
+    const to = combo(this, 'to', all, { multi: true, initial: ['juv'], head: 'Grupos y listas', max: 7 });
+    const n = to.picked.reduce((a, d) => a + d.n, 0);
+    const msg = st.msg !== undefined ? st.msg : 'Hola, familia de {nombre}. El entreno de este jueves pasa al coliseo 2, a la misma hora (4:30 p. m.). Gracias por avisarle.';
+    return { ...base, to, msg, setMsg: (e) => this.setState({ msg: e.target.value }),
+      preview: msg.replace('{nombre}', 'Valentina'), alcance: n === 1 ? '1 acudiente' : n + ' acudientes',
+      enviar: () => this.setState({ sent: true }), enviado: !!st.sent };
+  }
+}
+</script>
+</body>
+</html>

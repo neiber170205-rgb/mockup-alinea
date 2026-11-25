@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Black Panthers: ingresar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mk-width" content="1440">
+<script src="../assets/js/mockup.js"></script>
+<script src="../assets/js/dc-lite.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,500;0,600;1,800&amp;display=swap">
+<style>
+body{margin:0;background:#F5F3F7}
+a{color:#5B3A86}a:hover{color:#3B2259}
+input::placeholder{color:#7A7085}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #6B3FA0;outline-offset:2px}
+</style>
+</helmet>
+<div style="display:flex;flex-wrap:wrap;min-height:900px;background:#F5F3F7;color:#17121D;font-family:Kanit, 'Trebuchet MS', Verdana, sans-serif;">
+
+<section aria-label="Black Panthers Voleibol" style="flex:1 1 440px;min-width:0;background:#0F0B14;color:#FFFFFF;padding:2rem 3rem 0;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden;">
+<a href="Main.html" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;color:#FFFFFF;text-decoration:none;font-size:1rem;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>Volver al sitio</a>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:1.75rem;padding:2.5rem 0;">
+<span style="display:block;width:min(100%, 200px);aspect-ratio:1;border-radius:50%;overflow:hidden;"><img src="../assets/img/escudo-black-panthers.jpg" alt="Escudo de Black Panthers Voleibol" style="display:block;width:104%;height:104%;margin:-2%;"></span>
+<p style="margin:0;font-weight:800;font-style:italic;text-transform:uppercase;font-size:clamp(2.25rem, 4vw, 3.25rem);line-height:0.95;max-width:30rem;">Todo el club en un solo lugar</p>
+<p style="margin:0;font-size:1.125rem;line-height:1.55;color:#D9D0E2;max-width:26rem;">Pagos, asistencia, horarios y torneos, para el club y para las familias.</p>
+</div>
+<div aria-hidden="true" style="margin:0 -3rem;">
+<div style="height:10px;background:#FFFFFF;"></div>
+<div style="height:72px;background-color:#0F0B14;background-image:linear-gradient(rgba(255,255,255,0.3) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.3) 2px, transparent 2px);background-size:24px 24px;"></div>
+</div>
+</section>
+
+<main style="flex:1 1 440px;min-width:0;display:flex;align-items:center;justify-content:center;padding:3rem 1.5rem;box-sizing:border-box;">
+<div style="width:100%;max-width:400px;">
+
+<template data-sc-if value="{{isLogin}}" hint-placeholder-val="{{true}}">
+<div style="display:flex;flex-direction:column;gap:1.75rem;">
+<div style="display:flex;flex-direction:column;gap:8px;">
+<h1 style="margin:0;font-weight:800;font-style:italic;text-transform:uppercase;font-size:2.5rem;line-height:1;">Ingresa</h1>
+<p style="margin:0;font-size:1.0625rem;line-height:1.5;color:#5E5468;">Para el admin, los entrenadores, los acudientes y las jugadoras mayores de edad. Cada quien entra a su panel.</p>
+</div>
+<form style="display:flex;flex-direction:column;gap:1rem;">
+<div style="display:flex;flex-direction:column;gap:6px;">
+<label for="lg-usuario" style="font-size:1rem;font-weight:500;">Correo o celular</label>
+<input id="lg-usuario" type="text" autocomplete="username" placeholder="300 123 4567" style="height:48px;padding:0 14px;border-radius:8px;border:1.5px solid #8E82A0;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;box-sizing:border-box;width:100%;">
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;">
+<label for="lg-clave" style="font-size:1rem;font-weight:500;">Contraseña</label>
+<div style="position:relative;">
+<input id="lg-clave" type="{{passType}}" autocomplete="current-password" style="height:48px;padding:0 96px 0 14px;border-radius:8px;border:1.5px solid #8E82A0;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;box-sizing:border-box;width:100%;">
+<button type="button" onClick="{{togglePass}}" style="position:absolute;top:2px;right:2px;height:44px;padding:0 14px;border:none;border-radius:6px;background:transparent;color:#5B3A86;font-family:inherit;font-size:0.9375rem;font-weight:500;cursor:pointer;">{{passLabel}}</button>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px;">
+<label style="display:inline-flex;align-items:center;gap:10px;min-height:44px;font-size:1rem;cursor:pointer;"><input type="checkbox" style="width:20px;height:20px;margin:0;accent-color:#6B3FA0;">Recordarme</label>
+<button type="button" onClick="{{goRecover}}" style="min-height:44px;padding:0;border:none;background:transparent;color:#5B3A86;font-family:inherit;font-size:1rem;font-weight:500;text-decoration:underline;text-underline-offset:4px;cursor:pointer;">¿Olvidaste tu contraseña?</button>
+</div>
+<a href="Admin-Inicio.html" style="display:flex;align-items:center;justify-content:center;min-height:52px;margin-top:0.5rem;border-radius:8px;background:{{accent}};color:#FFFFFF;font-weight:600;font-size:1.0625rem;text-decoration:none;">Ingresar</a>
+</form>
+<p style="margin:0;font-size:1rem;line-height:1.5;color:#5E5468;">¿Todavía no eres parte del club? <a href="Main.html" style="font-weight:600;">Inscríbete</a></p>
+</div>
+</template>
+
+<template data-sc-if value="{{isRecover}}" hint-placeholder-val="{{false}}">
+<div style="display:flex;flex-direction:column;gap:1.5rem;">
+<div style="display:flex;flex-direction:column;gap:8px;">
+<h1 style="margin:0;font-weight:800;font-style:italic;text-transform:uppercase;font-size:2.25rem;line-height:1;">Recupera tu acceso</h1>
+<p style="margin:0;font-size:1.0625rem;line-height:1.5;color:#5E5468;">Escribe el celular que tienes registrado en el club. Te enviamos un código por WhatsApp.</p>
+</div>
+<form style="display:flex;flex-direction:column;gap:1rem;">
+<div style="display:flex;flex-direction:column;gap:6px;">
+<label for="rc-celular" style="font-size:1rem;font-weight:500;">Celular</label>
+<input id="rc-celular" type="tel" autocomplete="tel" placeholder="300 123 4567" style="height:48px;padding:0 14px;border-radius:8px;border:1.5px solid #8E82A0;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;box-sizing:border-box;width:100%;">
+</div>
+<template data-sc-if value="{{codeNotSent}}" hint-placeholder-val="{{true}}">
+<button type="button" onClick="{{sendCode}}" style="min-height:52px;border:none;border-radius:8px;background:{{accent}};color:#FFFFFF;font-family:inherit;font-weight:600;font-size:1.0625rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;"><path d="M5 4h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-8l-5 4v-4H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"></path><path d="M8 10.5h.01M12 10.5h.01M16 10.5h.01"></path></svg>Enviar código por WhatsApp</button>
+</template>
+<template data-sc-if value="{{codeSent}}" hint-placeholder-val="{{false}}">
+<div style="display:flex;flex-direction:column;gap:1rem;">
+<p role="status" style="margin:0;display:flex;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:8px;background:#DCF2E5;color:#135C34;font-size:1rem;line-height:1.45;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:none;margin-top:2px;"><path d="M5 12l4 4 10-10"></path></svg>Te enviamos un código por WhatsApp. Vence en 10 minutos.</p>
+<div style="display:flex;flex-direction:column;gap:6px;">
+<label for="rc-codigo" style="font-size:1rem;font-weight:500;">Código de 6 números</label>
+<input id="rc-codigo" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="000000" style="height:52px;padding:0 14px;border-radius:8px;border:1.5px solid #8E82A0;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1.375rem;letter-spacing:0.4em;box-sizing:border-box;width:100%;">
+</div>
+<div style="display:flex;flex-direction:column;gap:6px;">
+<label for="rc-nueva" style="font-size:1rem;font-weight:500;">Nueva contraseña</label>
+<input id="rc-nueva" type="password" autocomplete="new-password" style="height:48px;padding:0 14px;border-radius:8px;border:1.5px solid #8E82A0;background:#FFFFFF;color:#17121D;font-family:inherit;font-size:1rem;box-sizing:border-box;width:100%;">
+</div>
+<a href="Admin-Inicio.html" style="display:flex;align-items:center;justify-content:center;min-height:52px;border-radius:8px;background:{{accent}};color:#FFFFFF;font-weight:600;font-size:1.0625rem;text-decoration:none;">Guardar y entrar</a>
+</div>
+</template>
+</form>
+<button type="button" onClick="{{goLogin}}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0;border:none;background:transparent;color:#5B3A86;font-family:inherit;font-size:1rem;font-weight:500;cursor:pointer;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>Volver a ingresar</button>
+</div>
+</template>
+
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#6B3FA0","options":["#6B3FA0","#8B3FD9","#7A4C9E"]},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const view = s.view || 'login';
+    return {
+      accent: this.props.accent ?? '#6B3FA0',
+      isLogin: view === 'login',
+      isRecover: view === 'recover',
+      codeSent: !!s.codeSent,
+      codeNotSent: !s.codeSent,
+      passType: s.showPass ? 'text' : 'password',
+      passLabel: s.showPass ? 'Ocultar' : 'Mostrar',
+      togglePass: () => this.setState({ showPass: !s.showPass }),
+      goRecover: () => this.setState({ view: 'recover', codeSent: false }),
+      goLogin: () => this.setState({ view: 'login' }),
+      sendCode: () => this.setState({ codeSent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>
